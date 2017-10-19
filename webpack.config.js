@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     'min-dash': [ './index.js' ],
-    'min-dash.min': [ './index.js' ],
+    'min-dash.min': [ './index.js' ]
   },
   module: {
     rules: [
@@ -14,8 +14,9 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         options: {
+          babelrc: false,
           presets: [
-            [ 'env', { modules: false } ]
+            [ 'env', { loose: true, modules: false } ]
           ]
         }
       }
