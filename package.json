@@ -27,6 +27,7 @@
   "bugs": {
     "url": "https://github.com/bpmn-io/min-dash/issues"
   },
+  "sideEffects": false,
   "homepage": "https://github.com/bpmn-io/min-dash",
   "devDependencies": {
     "babel-loader": "^7.1.2",
