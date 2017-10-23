@@ -25,7 +25,30 @@ describe('object', function() {
       // then
       expect(picked).to.eql({
         a: 1,
-        c: null
+        c: null,
+        d: undefined
+      });
+
+    });
+
+
+    it('should work on computed and non-enumerable properties', function() {
+
+      // given
+      var obj = {};
+
+      Object.defineProperty(obj, 'a', { value: 1 });
+      Object.defineProperty(obj, 'b', { get: () => false });
+      Object.defineProperty(obj, 'c', { get: () => null });
+
+      // when
+      var picked = pick(obj, [ 'a', 'c', 'd' ]);
+
+      // then
+      expect(picked).to.eql({
+        a: 1,
+        c: null,
+        d: undefined
       });
 
     });
