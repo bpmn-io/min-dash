@@ -16,23 +16,24 @@ describe('object', function() {
       var obj = {
         a: 1,
         b: false,
-        c: null
+        c: null,
+        e: undefined
       };
 
       // when
-      var picked = pick(obj, [ 'a', 'c', 'd' ]);
+      var picked = pick(obj, [ 'a', 'c', 'd', 'e' ]);
 
       // then
       expect(picked).to.eql({
         a: 1,
         c: null,
-        d: undefined
+        e: undefined
       });
 
     });
 
 
-    it('should work on computed and non-enumerable properties', function() {
+    it('should pick computed and non-enumerable properties', function() {
 
       // given
       var obj = {};
@@ -40,15 +41,34 @@ describe('object', function() {
       Object.defineProperty(obj, 'a', { value: 1 });
       Object.defineProperty(obj, 'b', { get: () => false });
       Object.defineProperty(obj, 'c', { get: () => null });
+      Object.defineProperty(obj, 'e', { value: undefined });
 
       // when
-      var picked = pick(obj, [ 'a', 'c', 'd' ]);
+      var picked = pick(obj, [ 'a', 'c', 'd', 'e' ]);
 
       // then
       expect(picked).to.eql({
         a: 1,
         c: null,
-        d: undefined
+        e: undefined
+      });
+
+    });
+
+
+    it('should pick inherited properties', function() {
+
+      // given
+      var proto = { a: 1 };
+      var obj = Object.create(proto);
+
+
+      // when
+      var picked = pick(obj, [ 'a' ]);
+
+      // then
+      expect(picked).to.eql({
+        a: 1
       });
 
     });
