@@ -11,6 +11,7 @@ import {
   some,
   map,
   values,
+  keys,
   groupBy,
   uniqueBy,
   unionBy,
@@ -505,6 +506,31 @@ describe('collection', function() {
     it('should be null-safe', function() {
 
       expect(values(undefined)).to.eql([]);
+
+    });
+
+  });
+
+
+  describe('keys', function() {
+
+    it('should work on Array', function() {
+
+      expect(keys([ 1, 2, 3 ])).to.eql([ '0', '1', '2' ]);
+
+    });
+
+
+    it('should work on Object', function() {
+
+      expect(keys({ a: 'A', b: 'B' })).to.eql([ 'a', 'b']);
+
+    });
+
+
+    it('should be null-safe', function() {
+
+      expect(keys(undefined)).to.eql([]);
 
     });
 
