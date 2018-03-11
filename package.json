@@ -1,6 +1,6 @@
 {
   "name": "min-dash",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Minimum utility toolbelt",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
