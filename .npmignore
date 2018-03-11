@@ -3,4 +3,5 @@ test
 .eslintignore
 .eslintrc
 .travis.yml
+CHANGELOG.md
 rollup.config.js
