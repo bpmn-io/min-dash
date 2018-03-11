@@ -18,20 +18,12 @@ Minimal utility tool belt to be used with [bpmn.io](https://bpmn.io/) related li
 ```javascript
 import {
   find,
-  sortBy
-} from 'min-dash/lib/collection';
-
-import {
+  sortBy,
   assign
-} from 'min-dash/lib/object';
-
-...
+} from 'min-dash';
 ```
 
-Use a ES6 to ES5 transpiler such as [Babel](http://babeljs.io/) to run the code in the browser.
-
-If you care about small bundle sizes, fetch the utilities directly from the individual files. This is required for actual tree shaking / dead code removal to work (cf. [this issue](https://github.com/webpack/webpack/pull/5435)).
-
+Your favourite module bundler should apply tree-shaking to only include the components your application requires. If you're using CommonJS modules give [common-shake](https://github.com/indutny/common-shake) a try.
 
 
 ## License
