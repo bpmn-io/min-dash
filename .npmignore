@@ -3,4 +3,4 @@ test
 .eslintignore
 .eslintrc
 .travis.yml
-webpack.config.js
+rollup.config.js
