@@ -8,6 +8,12 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 2.0.0
 
+### Breaking Changes
+
+* `FEAT`: expose utilities via main export only ([`cb6ab757`](https://github.com/bpmn-io/min-dash/commit/cb6ab757fa07e8728ba6c7bd692f93a94afecceb))
+
+### Other Improvements
+
 * `CHORE`: generate ES, CJS and UMD bundles using rollup
 * `CHORE`: babelify results and don't require `Object.assign` polyfill
 
