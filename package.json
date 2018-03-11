@@ -7,7 +7,7 @@
   "scripts": {
     "all": "run-s lint test bundle test:integration",
     "bundle": "NODE_ENV=production webpack",
-    "lint": "eslint 'lib/**/*.js' 'test/**/*.js'",
+    "lint": "eslint .",
     "prepublishOnly": "run-s bundle test:integration",
     "test": "mocha -r babel-register -r source-map-support/register --full-trace test/*.spec.js",
     "test:integration": "mocha --full-trace test/integration/*.spec.js"
