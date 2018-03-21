@@ -15,6 +15,7 @@ import {
   groupBy,
   uniqueBy,
   unionBy,
+  size,
   sortBy,
   matchPattern
 } from '../lib/collection';
@@ -706,6 +707,34 @@ describe('collection', function() {
       expect(matcher({ a: 1, b: 10 })).to.be.true;
       expect(matcher({ a: 3, b: 10 })).to.be.false;
       expect(matcher({ a: true, b: 10 })).to.be.false;
+    });
+
+  });
+
+
+  describe('size', function() {
+
+    it('should return # of keys for Array', function() {
+
+      // given
+      var arr = [ 1, 2, 3 ];
+
+      // then
+      expect(size(arr)).to.eql(3);
+    });
+
+
+    it('should return # of keys for Object', function() {
+
+      // given
+      var obj = {
+        a: 1,
+        b: true,
+        c: undefined
+      };
+
+      // then
+      expect(size(obj)).to.eql(3);
     });
 
   });
