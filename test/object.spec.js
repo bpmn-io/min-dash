@@ -2,7 +2,8 @@ var expect = require('chai').expect;
 
 import {
   pick,
-  assign
+  assign,
+  merge
 } from '../lib/object';
 
 
@@ -101,6 +102,66 @@ describe('object', function() {
         b: false,
         c: null,
         d: undefined
+      });
+
+    });
+
+  });
+
+
+  describe('merge', function() {
+
+    it('should merge recursively', function() {
+
+      // given
+      var obj = {
+        a: {
+          a: 'A',
+          c: {
+            d: [ 0, 1, 2 ]
+          }
+        },
+        b: false
+      };
+
+      var other = {
+        a: {
+          c: {
+            e: 'E',
+            // overrides obj.a.c.d
+            d: [ 5, 6, 7 ]
+          }
+        },
+        // overridden by other2
+        b: 'foo'
+      };
+
+      var other2 = {
+        a: {
+          a: 'A2'
+        },
+        b: {
+          c: undefined
+        }
+      };
+
+      // when
+      var result = merge(obj, other, null, other2);
+
+      // then
+      expect(result).to.equal(obj);
+
+      expect(result).to.eql({
+        a: {
+          a: 'A2',
+          c: {
+            e: 'E',
+            d: [ 5, 6, 7 ]
+          }
+        },
+        b: {
+          c: undefined
+        }
       });
 
     });
