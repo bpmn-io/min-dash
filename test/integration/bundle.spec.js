@@ -31,6 +31,7 @@ describe('integration', function() {
 
     });
 
+
     it('should expose object utils', function() {
 
       // then
