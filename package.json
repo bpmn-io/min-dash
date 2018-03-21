@@ -7,6 +7,7 @@
   "scripts": {
     "all": "run-s lint test bundle test:integration",
     "bundle": "rollup -c",
+    "dev": "npm test -- --watch",
     "lint": "eslint .",
     "prepublishOnly": "run-s bundle test:integration",
     "test": "mocha -r babel-register -r source-map-support/register --full-trace test/*.spec.js",
