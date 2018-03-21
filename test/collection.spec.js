@@ -699,31 +699,13 @@ describe('collection', function() {
 
     it('should strictly equal { key: value }', function() {
 
-      // given
-      var arr = [ { a: 1 }, { a: 3 } ];
-
+      // when
       var matcher = matchPattern({ a: 1 });
 
-      // when
-      var result = find(arr, matcher);
-
       // then
-      expect(result).to.equal(arr[0]);
-    });
-
-
-    it('should strictly equal { key: value }', function() {
-
-      // given
-      var arr = [ { a: 1 }, { a: 3 } ];
-
-      var matcher = matchPattern({ a: 1 });
-
-      // when
-      var result = without(arr, matcher);
-
-      // then
-      expect(result).to.eql([ arr[1] ]);
+      expect(matcher({ a: 1, b: 10 })).to.be.true;
+      expect(matcher({ a: 3, b: 10 })).to.be.false;
+      expect(matcher({ a: true, b: 10 })).to.be.false;
     });
 
   });
