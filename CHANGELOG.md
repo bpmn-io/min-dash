@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.2.0
+
+* `FEAT`: add `flatten(array)` util
+
 ## 2.1.0
 
 * `FEAT`: add `merge(target, ...sources)` util
