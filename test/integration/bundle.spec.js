@@ -8,6 +8,14 @@ describe('integration', function() {
     // when
     var md = require('../../');
 
+    it('should expose array utils', function() {
+
+      // then
+      expect(md.flatten).to.exist;
+
+    });
+
+
     it('should expose collection utils', function() {
 
       // then
