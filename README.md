@@ -26,6 +26,11 @@ import {
 Your favourite module bundler should apply tree-shaking to only include the components your application requires. If you're using CommonJS modules give [common-shake](https://github.com/indutny/common-shake) a try.
 
 
+## Related
+
+* [1-liners](https://github.com/1-liners/1-liners) - a slightly more opinionated collection of useful utilities
+
+
 ## License
 
 MIT
