@@ -3,7 +3,8 @@ var expect = require('chai').expect;
 import {
   pick,
   assign,
-  merge
+  merge,
+  omit
 } from '../lib/object';
 
 
@@ -34,7 +35,7 @@ describe('object', function() {
     });
 
 
-    it('should pick computed and non-enumerable properties', function() {
+    it('should handle computed and non-enumerable properties', function() {
 
       // given
       var obj = {};
@@ -70,6 +71,51 @@ describe('object', function() {
       // then
       expect(picked).to.eql({
         a: 1
+      });
+
+    });
+
+  });
+
+
+  describe('omit', function() {
+
+    it('should omit selected attributes', function() {
+
+      // given
+      var obj = {
+        a: 1,
+        b: false,
+        c: null,
+        e: undefined
+      };
+
+      // when
+      var omitted = omit(obj, [ 'a', 'd', 'e' ]);
+
+      // then
+      expect(omitted).to.eql({
+        b: false,
+        c: null
+      });
+
+    });
+
+
+    it('should ignore non-enumerable properties', function() {
+
+      // given
+      var obj = {};
+
+      Object.defineProperty(obj, 'b', { enumerable: true, get: () => false });
+      Object.defineProperty(obj, 'c', { get: () => null });
+
+      // when
+      var omited = omit(obj, [ 'a', 'd', 'e' ]);
+
+      // then
+      expect(omited).to.eql({
+        b: false
       });
 
     });
