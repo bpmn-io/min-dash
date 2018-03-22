@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.3.0
+
+* `FEAT`: add `omit(obj, properties)` util
+
 ## 2.2.0
 
 * `FEAT`: add `flatten(array)` util
