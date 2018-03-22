@@ -9,7 +9,7 @@ Minimal utility tool belt to be used with [bpmn.io](https://bpmn.io/) related li
 
 * fine selection of [powerful utilities](./lib) on board
 * ES2015 compatible
-* complete bundle `4K` gzipped
+* complete bundle `2kB` minified and gzipped
 * utilities optimized for speed (i.e. sorting and union only by key)
 
 
