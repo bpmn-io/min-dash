@@ -29,6 +29,8 @@ Your favourite module bundler should apply tree-shaking to only include the comp
 ## Related
 
 * [1-liners](https://github.com/1-liners/1-liners) - a slightly more opinionated collection of useful utilities
+* [min-dom](https://github.com/bpmn-io/min-dom) - minimal DOM utility toolbelt
+* [tiny-svg](https://github.com/bpmn-io/tiny-svg) - tiny SVG utility toolbelt
 
 
 ## License
