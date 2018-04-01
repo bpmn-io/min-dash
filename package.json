@@ -3,7 +3,8 @@
   "version": "2.3.0",
   "description": "Minimum utility toolbelt",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.esm.js",
+  "browser": "dist/min-dash.js",
   "scripts": {
     "all": "run-s lint test bundle test:integration",
     "bundle": "rollup -c",
