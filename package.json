@@ -4,6 +4,7 @@
   "description": "Minimum utility toolbelt",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "all": "run-s lint test bundle test:integration",
     "bundle": "rollup -c",
@@ -42,6 +43,7 @@
     "rollup": "^0.56.5",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-uglify": "^3.0.0",
+    "rollup-plugin-copy": "^0.2.3",
     "sinon": "^4.0.1",
     "sinon-chai": "^2.14.0",
     "source-map-support": "^0.5.0"
