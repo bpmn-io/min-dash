@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.1.0
+
+* `FEAT`: add TypeScript definitions
+
 ## 3.0.0
 
 ### Breaking Changes
