@@ -152,6 +152,26 @@ describe('object', function() {
 
     });
 
+
+    it('should not override prototype', function() {
+
+      function Bar() {}
+      function Foo() {}
+
+      // given
+      var obj1 = new Foo();
+
+      var obj2 = new Bar();
+
+      // when
+      var result = assign(obj1, obj2);
+
+      // then
+      expect(result).to.eql(obj1);
+
+      expect(result.__proto__).to.eql(obj1.__proto__);
+    });
+
   });
 
 
@@ -210,6 +230,26 @@ describe('object', function() {
         }
       });
 
+    });
+
+
+    it('should not override prototype', function() {
+
+      function Bar() {}
+      function Foo() {}
+
+      // given
+      var obj1 = new Foo();
+
+      var obj2 = new Bar();
+
+      // when
+      var result = merge(obj1, obj2);
+
+      // then
+      expect(result).to.eql(obj1);
+
+      expect(result.__proto__).to.eql(obj1.__proto__);
     });
 
   });
