@@ -1,7 +1,10 @@
 var expect = require('chai').expect;
 
 import {
-  has
+  has,
+  isDefined,
+  isUndefined,
+  isNil
 } from '../lib/lang';
 
 
@@ -36,6 +39,65 @@ describe('lang', function() {
       // then
       expect(has(arr, '1')).to.be.true;
       expect(has(arr, '5')).to.be.false;
+    });
+
+  });
+
+
+  describe('isDefined', function() {
+
+    it('should work', function() {
+
+      // then
+      expect(isDefined(1)).to.be.true;
+      expect(isDefined(0)).to.be.true;
+      expect(isDefined('')).to.be.true;
+      expect(isDefined({})).to.be.true;
+
+      expect(isDefined(null)).to.be.true;
+
+      expect(isDefined()).to.be.false;
+      expect(isDefined(undefined)).to.be.false;
+      expect(isDefined(void 0)).to.be.false;
+    });
+
+  });
+
+
+  describe('isUndefined', function() {
+
+    it('should work', function() {
+
+      // then
+      expect(isUndefined(1)).to.be.false;
+      expect(isUndefined(0)).to.be.false;
+      expect(isUndefined('')).to.be.false;
+      expect(isUndefined({})).to.be.false;
+
+      expect(isUndefined(null)).to.be.false;
+
+      expect(isUndefined()).to.be.true;
+      expect(isUndefined(undefined)).to.be.true;
+      expect(isUndefined(void 0)).to.be.true;
+    });
+
+  });
+
+
+  describe('isNil', function() {
+
+    it('should work', function() {
+
+      // then
+      expect(isNil(1)).to.be.false;
+      expect(isNil(0)).to.be.false;
+      expect(isNil('')).to.be.false;
+      expect(isNil({})).to.be.false;
+
+      expect(isNil(null)).to.be.true;
+      expect(isNil()).to.be.true;
+      expect(isNil(undefined)).to.be.true;
+      expect(isNil(void 0)).to.be.true;
     });
 
   });
