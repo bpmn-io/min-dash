@@ -6,6 +6,12 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.2.0
+
+* `FEAT`: add `isNil` utility that checks for `undefined || null`
+* `FIX`: correct `isDefined` behavior
+* `FIX`: make `isUndefined` behavior
+
 ## 3.1.0
 
 * `FEAT`: add TypeScript definitions
