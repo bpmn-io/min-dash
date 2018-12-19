@@ -10,6 +10,17 @@
 export function debounce(fn: Function, timeout: number): (...args: any[]) => void;
 
 /**
+ * Throttle fn, calling at most once
+ * in the given interval.
+ *
+ * @param  {Function} fn
+ * @param  {Number} interval
+ *
+ * @return {Function} throttled function
+ */
+export function throttle(fn: Function, interval: number): (...args: any[]) => void;
+
+/**
  * Bind function against target <this>.
  *
  * @param  {Function} fn

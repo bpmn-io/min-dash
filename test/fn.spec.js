@@ -9,7 +9,8 @@ chai.use(sinonChai);
 
 import {
   bind,
-  debounce
+  debounce,
+  throttle
 } from '../lib/fn';
 
 
@@ -79,6 +80,51 @@ describe('fn', function() {
 
       // then
       expect(callback).to.have.been.calledOnce;
+    });
+
+  });
+
+
+  describe('throttle', function() {
+
+    var clock;
+
+    beforeEach(function() {
+      clock = sinon.useFakeTimers();
+    });
+
+    afterEach(function() {
+      clock.restore();
+    });
+
+
+    it('should throttle fn', function() {
+
+      var callback = sinon.spy();
+      var throttled = throttle(callback, 100);
+
+      // when
+      throttled();
+
+      // then
+      expect(callback).to.have.been.calledOnce;
+
+      // ticked...
+      clock.tick(99);
+
+      throttled();
+
+      // then
+      expect(callback).to.have.been.calledOnce;
+
+      // throttle interval elapsed
+      clock.tick(101);
+
+      // when
+      throttled();
+
+      // then
+      expect(callback).to.have.been.calledTwice;
     });
 
   });
