@@ -41,7 +41,7 @@ describe('fn', function() {
 
   describe('debounce', function() {
 
-    var clock;
+    var clock, clearTimeout;
 
     beforeEach(function() {
       clock = sinon.useFakeTimers();
@@ -49,6 +49,10 @@ describe('fn', function() {
 
     afterEach(function() {
       clock.restore();
+
+      if (clearTimeout) {
+        clearTimeout.restore();
+      }
     });
 
 
@@ -80,6 +84,70 @@ describe('fn', function() {
 
       // then
       expect(callback).to.have.been.calledOnce;
+    });
+
+
+    it('should pass last args', function() {
+
+      var callback = sinon.spy();
+      var debounced = debounce(callback, 100);
+
+      // when
+      debounced(1);
+      debounced('BAR', 3);
+
+      // ticked...
+      clock.tick(101);
+
+      // then
+      expect(callback).to.have.been.calledOnceWith('BAR', 3);
+    });
+
+
+    it('should use last this', function() {
+
+      var self = {};
+
+      var callback = sinon.spy(function() {
+        expect(this).to.equal(self);
+      });
+
+      var debounced = debounce(callback, 100);
+
+      // when
+      debounced.apply({});
+      debounced.apply(self, ['BAR', 3 ]);
+
+      // ticked...
+      clock.tick(101);
+
+      // then
+      expect(callback).to.have.been.calledOnce;
+    });
+
+
+    it('should not #clearTimeout', function() {
+
+      var callback = sinon.spy();
+      var debounced = debounce(callback, 100);
+
+      clearTimeout = sinon.spy(global, 'clearTimeout');
+
+      // when
+      debounced();
+      debounced();
+
+      // ticked...
+      clock.tick(99);
+
+      debounced();
+
+      // debounce timer elapsed
+      clock.tick(101);
+
+      // then
+      expect(callback).to.have.been.calledOnce;
+      expect(clearTimeout).not.to.have.been.called;
     });
 
   });
