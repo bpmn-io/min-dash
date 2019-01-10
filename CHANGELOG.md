@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.4.0
+
+* `CHORE`: make `debounce` work without `clearTimeout` ([#7](https://github.com/bpmn-io/min-dash/pull/7))
+
 ## 3.3.0
 
 * `FEAT`: add `throttle(fn, interval)` util
