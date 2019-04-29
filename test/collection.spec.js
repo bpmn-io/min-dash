@@ -270,6 +270,26 @@ describe('collection', function() {
 
     });
 
+
+    it('should return the result that stopped the iteration', function() {
+
+      // given
+      var arr = [ 1, 2, 3 ];
+
+      var result;
+
+      // when
+      result = forEach(arr, function(el) {
+
+        if (el === 2) {
+          return false;
+        }
+      });
+
+      expect(result).to.eql(2);
+
+    });
+
   });
 
 
