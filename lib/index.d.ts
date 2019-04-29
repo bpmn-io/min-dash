@@ -28,7 +28,7 @@ export function throttle(fn: Function, interval: number): (...args: any[]) => vo
  *
  * @return {Function} bound function
  */
-export function bind(fn: Function, target: object): Function;
+export function bind<T extends Function>(fn: T, target: object): T;
 
 /**
  * Copy the values of all of the enumerable own properties from one or more source objects to a
