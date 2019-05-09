@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 import {
   has,
   isDefined,
+  isFunction,
   isUndefined,
   isNil
 } from '../lib/lang';
@@ -98,6 +99,27 @@ describe('lang', function() {
       expect(isNil()).to.be.true;
       expect(isNil(undefined)).to.be.true;
       expect(isNil(void 0)).to.be.true;
+    });
+
+  });
+
+
+  describe('isFunction', function() {
+
+    it('should work', function() {
+
+      // then
+      expect(isFunction(function() {})).to.be.true;
+      expect(isFunction(async function() {})).to.be.true;
+
+      expect(isFunction(() => {})).to.be.true;
+      expect(isFunction(async () => {})).to.be.true;
+
+      expect(isFunction(function* generator() {})).to.be.true;
+      expect(isFunction(async function* asyncGenerator() {})).to.be.true;
+
+      expect(isFunction({})).to.be.false;
+      expect(isFunction(undefined)).to.be.false;
     });
 
   });
