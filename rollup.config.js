@@ -9,10 +9,10 @@ function pgl(plugins=[]) {
       exclude: 'node_modules/**',
       babelrc: false,
       plugins: [
-        'transform-object-assign'
+        '@babel/plugin-transform-object-assign'
       ],
       presets: [
-        [ 'env', { modules: false } ]
+        [ '@babel/env', { modules: false } ]
       ]
     }),
     ...plugins

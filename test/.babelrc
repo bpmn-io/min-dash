@@ -1,6 +1,10 @@
 {
   "extends": "../.babelrc",
   "plugins": [
-    "@babel/plugin-syntax-async-generators"
+    ["@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
   ]
 }
