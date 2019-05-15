@@ -8,8 +8,9 @@
   "scripts": {
     "all": "run-s lint test distro",
     "bundle": "rollup -c",
+    "bundle:checksize": "bundlesize",
     "copy": "cpx -v lib/*.d.ts dist",
-    "distro": "run-s copy bundle test:integration",
+    "distro": "run-s copy bundle test:integration bundle:checksize",
     "dev": "npm test -- --watch",
     "lint": "eslint .",
     "prepublishOnly": "run-s distro",
@@ -38,6 +39,7 @@
     "@babel/plugin-transform-object-assign": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "bundlesize": "^0.17.1",
     "chai": "^4.1.2",
     "cpx": "^1.5.0",
     "eslint": "^5.6.1",
@@ -50,5 +52,11 @@
     "sinon": "^6.3.5",
     "sinon-chai": "^3.2.0",
     "source-map-support": "^0.5.0"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/min-dash.min.js",
+      "maxSize": "2 kB"
+    }
+  ]
 }
