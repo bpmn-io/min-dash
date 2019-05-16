@@ -8,7 +8,9 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 3.5.0
 
-* `FIX`: make `isFunction` detect async functions and generators, too
+* `FIX`: make `isFunction` detect async functions and generators
+* `FIX`: correct `bind` TypeScript definitions
+* `FIX`: match `forEach` implementation with documentation
 * `CHORE`: bump to `babel@7`
 
 ## 3.4.0
