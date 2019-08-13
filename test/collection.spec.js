@@ -410,6 +410,19 @@ describe('collection', function() {
 
     });
 
+
+    it('should always return boolean', function() {
+
+      // given
+      var collection = [ 1, true, 'word' ];
+
+      // when
+      var result = every(collection, val => val);
+
+      // then
+      expect(result).to.be.true;
+    });
+
   });
 
 
