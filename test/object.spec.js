@@ -252,6 +252,21 @@ describe('object', function() {
       expect(result.__proto__).to.eql(obj1.__proto__);
     });
 
+
+    it('should not allow prototype pollution', function() {
+
+      // given
+      var target = { merge: { me: 'nested' } };
+      var source = JSON.parse('{ "__proto__": { "alert": 1 } }');
+
+      // when
+      merge(target, source);
+
+      // then
+      expect({}.alert).to.be.undefined;
+
+    });
+
   });
 
 });
