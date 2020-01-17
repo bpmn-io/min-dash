@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
+    "module": "none",
+    "allowJs": true,                       /* Allow javascript files to be compiled. */
+    "checkJs": true,                       /* Report errors in .js files. */
+    "declaration": true,                   /* Generates corresponding '.d.ts' file. */
+    "outFile": "dist/index.d.ts",
+    "rootDir": ".",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "emitDeclarationOnly": true,                        /* Do not emit outputs. */
+    "strict": false,                           /* Enable all strict type-checking options. */
+  },
+  "include": [
+    "lib"
+  ]
+}

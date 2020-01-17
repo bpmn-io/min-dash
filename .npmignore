@@ -7,3 +7,4 @@ lib
 .travis.yml
 CHANGELOG.md
 rollup.config.js
+tsconfig.json
