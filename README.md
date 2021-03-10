@@ -1,6 +1,6 @@
 # min-dash
 
-[![Build Status](https://travis-ci.com/bpmn-io/min-dash.svg?branch=master)](https://travis-ci.com/bpmn-io/min-dash)
+[![CI](https://github.com/bpmn-io/min-dash/workflows/CI/badge.svg)](https://github.com/bpmn-io/min-dash/actions?query=workflow%3ACI)
 
 Minimal utility tool belt to be used with [bpmn.io](https://bpmn.io/) related libraries.
 
