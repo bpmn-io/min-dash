@@ -209,10 +209,12 @@ describe('object', function() {
         a: {
           c: {
             e: 'E',
+
             // overrides obj.a.c.d
             d: [ 5, 6, 7 ]
           }
         },
+
         // overridden by other2
         b: 'foo'
       };

@@ -22,6 +22,7 @@ function pgl(plugins=[]) {
 const umdDist = 'dist/min-dash.js';
 
 export default [
+
   // browser-friendly UMD build
   {
     input: 'lib/index.js',
