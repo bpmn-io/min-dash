@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.6.0
+
+* `FEAT`: add `set` utility ([#16](https://github.com/bpmn-io/min-dash/pull/16))
+
 ## 3.5.2
 
 * `FIX`: prevent prototype pollution via `merge`
