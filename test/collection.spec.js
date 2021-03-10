@@ -296,6 +296,7 @@ describe('collection', function() {
   describe('without', function() {
 
     it('should work on Array', function() {
+
       // given
       var obj = { };
       var arr = [ 1, obj, false ];
