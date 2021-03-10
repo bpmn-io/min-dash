@@ -10,11 +10,12 @@
     "bundle": "rollup -c",
     "bundle:checksize": "bundlesize",
     "copy": "cpx -v lib/*.d.ts dist",
-    "distro": "run-s copy bundle test:integration bundle:checksize",
+    "distro": "run-s copy bundle test:integration test:bundle bundle:checksize",
     "dev": "npm test -- --watch",
     "lint": "eslint .",
     "prepublishOnly": "run-s distro",
     "test": "mocha -r @babel/register -r source-map-support/register --full-trace test/*.spec.js",
+    "test:bundle": "rollup -c test/bundling/rollup.config.js",
     "test:integration": "mocha --full-trace test/integration/*.spec.js"
   },
   "repository": {
@@ -40,6 +41,7 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/register": "^7.13.8",
     "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
     "bundlesize": "^0.18.1",
     "chai": "^4.3.3",
     "cpx": "^1.5.0",
@@ -57,6 +59,10 @@
     {
       "path": "./dist/min-dash.min.js",
       "maxSize": "2 kB"
+    },
+    {
+      "path": "./test/bundling/bundled.js",
+      "maxSize": "300 B"
     }
   ]
 }
