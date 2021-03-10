@@ -1,4 +1,4 @@
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 import {
   pick,
@@ -16,7 +16,7 @@ describe('object', function() {
     it('should take selected attributes', function() {
 
       // given
-      var obj = {
+      const obj = {
         a: 1,
         b: false,
         c: null,
@@ -24,7 +24,7 @@ describe('object', function() {
       };
 
       // when
-      var picked = pick(obj, [ 'a', 'c', 'd', 'e' ]);
+      const picked = pick(obj, [ 'a', 'c', 'd', 'e' ]);
 
       // then
       expect(picked).to.eql({
@@ -39,7 +39,7 @@ describe('object', function() {
     it('should handle computed and non-enumerable properties', function() {
 
       // given
-      var obj = {};
+      const obj = {};
 
       Object.defineProperty(obj, 'a', { value: 1 });
       Object.defineProperty(obj, 'b', { get: () => false });
@@ -47,7 +47,7 @@ describe('object', function() {
       Object.defineProperty(obj, 'e', { value: undefined });
 
       // when
-      var picked = pick(obj, [ 'a', 'c', 'd', 'e' ]);
+      const picked = pick(obj, [ 'a', 'c', 'd', 'e' ]);
 
       // then
       expect(picked).to.eql({
@@ -62,12 +62,12 @@ describe('object', function() {
     it('should pick inherited properties', function() {
 
       // given
-      var proto = { a: 1 };
-      var obj = Object.create(proto);
+      const proto = { a: 1 };
+      const obj = Object.create(proto);
 
 
       // when
-      var picked = pick(obj, [ 'a' ]);
+      const picked = pick(obj, [ 'a' ]);
 
       // then
       expect(picked).to.eql({
@@ -84,7 +84,7 @@ describe('object', function() {
     it('should omit selected attributes', function() {
 
       // given
-      var obj = {
+      const obj = {
         a: 1,
         b: false,
         c: null,
@@ -92,7 +92,7 @@ describe('object', function() {
       };
 
       // when
-      var omitted = omit(obj, [ 'a', 'd', 'e' ]);
+      const omitted = omit(obj, [ 'a', 'd', 'e' ]);
 
       // then
       expect(omitted).to.eql({
@@ -106,13 +106,13 @@ describe('object', function() {
     it('should ignore non-enumerable properties', function() {
 
       // given
-      var obj = {};
+      const obj = {};
 
       Object.defineProperty(obj, 'b', { enumerable: true, get: () => false });
       Object.defineProperty(obj, 'c', { get: () => null });
 
       // when
-      var omited = omit(obj, [ 'a', 'd', 'e' ]);
+      const omited = omit(obj, [ 'a', 'd', 'e' ]);
 
       // then
       expect(omited).to.eql({
@@ -129,19 +129,19 @@ describe('object', function() {
     it('should merge objects', function() {
 
       // given
-      var obj1 = {
+      const obj1 = {
         a: 1,
         b: false,
         c: null
       };
 
-      var obj2 = {
+      const obj2 = {
         a: false,
         d: undefined
       };
 
       // when
-      var result = assign({}, obj1, obj2, null);
+      const result = assign({}, obj1, obj2, null);
 
       // then
       expect(result).to.eql({
@@ -160,12 +160,12 @@ describe('object', function() {
       function Foo() {}
 
       // given
-      var obj1 = new Foo();
+      const obj1 = new Foo();
 
-      var obj2 = new Bar();
+      const obj2 = new Bar();
 
       // when
-      var result = assign(obj1, obj2);
+      const result = assign(obj1, obj2);
 
       // then
       expect(result).to.eql(obj1);
@@ -177,8 +177,8 @@ describe('object', function() {
     it('should not allow prototype pollution', function() {
 
       // given
-      var target = { merge: { me: 'nested' } };
-      var source = JSON.parse('{ "__proto__": { "alert": 1 } }');
+      const target = { merge: { me: 'nested' } };
+      const source = JSON.parse('{ "__proto__": { "alert": 1 } }');
 
       // when
       assign(target, source);
@@ -195,7 +195,7 @@ describe('object', function() {
     it('should merge recursively', function() {
 
       // given
-      var obj = {
+      const obj = {
         a: {
           a: 'A',
           c: {
@@ -205,7 +205,7 @@ describe('object', function() {
         b: false
       };
 
-      var other = {
+      const other = {
         a: {
           c: {
             e: 'E',
@@ -219,7 +219,7 @@ describe('object', function() {
         b: 'foo'
       };
 
-      var other2 = {
+      const other2 = {
         a: {
           a: 'A2'
         },
@@ -229,7 +229,7 @@ describe('object', function() {
       };
 
       // when
-      var result = merge(obj, other, null, other2);
+      const result = merge(obj, other, null, other2);
 
       // then
       expect(result).to.equal(obj);
@@ -256,12 +256,12 @@ describe('object', function() {
       function Foo() {}
 
       // given
-      var obj1 = new Foo();
+      const obj1 = new Foo();
 
-      var obj2 = new Bar();
+      const obj2 = new Bar();
 
       // when
-      var result = merge(obj1, obj2);
+      const result = merge(obj1, obj2);
 
       // then
       expect(result).to.eql(obj1);
@@ -273,8 +273,8 @@ describe('object', function() {
     it('should not allow prototype pollution', function() {
 
       // given
-      var target = { merge: { me: 'nested' } };
-      var source = JSON.parse('{ "__proto__": { "alert": 1 } }');
+      const target = { merge: { me: 'nested' } };
+      const source = JSON.parse('{ "__proto__": { "alert": 1 } }');
 
       // when
       merge(target, source);
@@ -291,10 +291,10 @@ describe('object', function() {
     it('should return modified object', function() {
 
       // given
-      var x = {};
+      const x = {};
 
       // when
-      var modified = set(x, ['a'], true);
+      const modified = set(x, ['a'], true);
 
       // then
       expect(modified).to.equal(x);

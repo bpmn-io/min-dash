@@ -1,4 +1,4 @@
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 import {
   has,
@@ -16,7 +16,7 @@ describe('lang', function() {
     it('should work for {}', function() {
 
       // given
-      var obj = {
+      const obj = {
         a: 1,
         e: undefined
       };
@@ -35,7 +35,7 @@ describe('lang', function() {
     it('should work for []', function() {
 
       // given
-      var arr = [ 1, 2, 3 ];
+      const arr = [ 1, 2, 3 ];
 
       // then
       expect(has(arr, '1')).to.be.true;
