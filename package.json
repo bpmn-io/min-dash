@@ -39,7 +39,7 @@
     "@babel/plugin-transform-object-assign": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "bundlesize": "^0.17.1",
+    "bundlesize": "^0.18.1",
     "chai": "^4.3.3",
     "cpx": "^1.5.0",
     "eslint": "^7.21.0",
