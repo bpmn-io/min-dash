@@ -4,7 +4,8 @@ import {
   pick,
   assign,
   merge,
-  omit
+  omit,
+  set
 } from '../lib/object';
 
 
@@ -278,6 +279,124 @@ describe('object', function() {
 
       // then
       expect({}.alert).to.be.undefined;
+    });
+
+  });
+
+
+  describe('set', function() {
+
+    it('should return modified object', function() {
+
+      // given
+      var x = {};
+
+      // when
+      var modified = set(x, ['a'], true);
+
+      // then
+      expect(modified).to.equal(x);
+    });
+
+
+    it('should set property value', function() {
+      expect(set({}, ['a'], true)).to.eql({
+        a: true
+      });
+    });
+
+
+    it('should set array value', function() {
+
+      expect(set([0, 1, 2], [1], 'A')).to.eql([ 0, 'A', 2]);
+
+      expect(set({
+        a: [0, 0]
+      }, [ 'a', 1 ], 1)).to.eql({
+        a: [ 0, 1 ]
+      });
+    });
+
+
+    it('should set array with string keys', function() {
+
+      expect(set([0, 1, 2], ['1'], 'A')).to.eql([ 0, 'A', 2]);
+
+      expect(set({
+        a: [0, 0]
+      }, [ 'a', '1' ], 1)).to.eql({
+        a: [ 0, 1 ]
+      });
+    });
+
+
+    it('should delete value', function() {
+      expect(set({
+        a: false
+      }, [ 'a' ], undefined)).to.eql({});
+    });
+
+
+    it('should set nested value', function() {
+
+      expect(set({
+        a: {
+          b: { }
+        }
+      }, ['a', 'b'], false)).to.eql({
+        a: {
+          b: false
+        }
+      });
+
+      expect(set({
+        a: {
+          b: { }
+        }
+      }, [ 'a', 'b', 'c' ], 'C')).to.eql({
+        a: {
+          b: {
+            c: 'C'
+          }
+        }
+      });
+    });
+
+
+    it('should scaffold object hierarchy', function() {
+
+      expect(set({}, [ 'a', 'b', 'c' ], 'C')).to.eql({
+        a: {
+          b: {
+            c: 'C'
+          }
+        }
+      });
+    });
+
+
+    it('should scaffold array hierarchy', function() {
+
+      expect(set({}, [ 'a', 1, 2 ], 'C')).to.eql({
+        a: [
+          undefined,
+          [ undefined, undefined, 'C' ]
+        ]
+      });
+
+      expect(set({}, [ 'a', '1', '2' ], 'C')).to.eql({
+        a: [
+          undefined,
+          [ undefined, undefined, 'C' ]
+        ]
+      });
+    });
+
+
+    it('should not allow prototype polution', function() {
+      expect(function() {
+        set({}, [ '__proto__' ], { foo: 'bar' });
+      }).to.throw(/illegal key/);
     });
 
   });

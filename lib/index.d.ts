@@ -63,7 +63,19 @@ export function assign<T, U, V, W>(target: T, source1: U, source2: V, source3: W
  * @param target The target object to copy to.
  * @param sources One or more source objects from which to copy properties
  */
-export function assign(target: object, ...sources: any[]): any;
+export function assign<T>(target: T, ...sources: any[]): T;
+
+/**
+ * Sets a nested property of a given object to the specified value.
+ *
+ * This mutates the object and returns it.
+ *
+ * @param target The target of the set operation.
+ * @param path The path to the nested value.
+ * @param value The value to set.
+ */
+export function set<T>(target: T, path: (string|number)[], value: any): T;
+
 
 export function pick<T>(target: T, properties: (keyof T)[]): Pick<T, keyof T>;
 
