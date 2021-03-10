@@ -14,9 +14,9 @@
     "dev": "npm test -- --watch",
     "lint": "eslint .",
     "prepublishOnly": "run-s distro",
-    "test": "mocha -r @babel/register -r source-map-support/register --full-trace test/*.spec.js",
+    "test": "mocha -r esm test/*.spec.js",
     "test:bundle": "rollup -c test/bundling/rollup.config.js",
-    "test:integration": "mocha --full-trace test/integration/*.spec.js"
+    "test:integration": "mocha test/integration/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -36,24 +36,19 @@
   "sideEffects": false,
   "homepage": "https://github.com/bpmn-io/min-dash",
   "devDependencies": {
-    "@babel/core": "^7.13.10",
-    "@babel/plugin-transform-object-assign": "^7.12.13",
-    "@babel/preset-env": "^7.13.10",
-    "@babel/register": "^7.13.8",
-    "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "bundlesize": "^0.18.1",
     "chai": "^4.3.3",
     "cpx": "^1.5.0",
     "eslint": "^7.21.0",
     "eslint-plugin-bpmn-io": "^0.12.0",
+    "esm": "^3.2.25",
     "mocha": "^8.3.1",
     "npm-run-all": "^4.1.1",
     "rollup": "^2.41.0",
     "rollup-plugin-terser": "^7.0.2",
     "sinon": "^9.2.4",
-    "sinon-chai": "^3.5.0",
-    "source-map-support": "^0.5.19"
+    "sinon-chai": "^3.5.0"
   },
   "bundlesize": [
     {

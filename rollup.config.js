@@ -1,23 +1,9 @@
 import { terser } from 'rollup-plugin-terser';
 
-import babel from '@rollup/plugin-babel';
-
 import pkg from './package.json';
 
 function pgl(plugins=[]) {
-  return [
-    babel({
-      exclude: 'node_modules/**',
-      babelrc: false,
-      plugins: [
-        '@babel/plugin-transform-object-assign'
-      ],
-      presets: [
-        [ '@babel/env', { modules: false } ]
-      ]
-    }),
-    ...plugins
-  ];
+  return plugins;
 }
 
 const umdDist = 'dist/min-dash.js';
