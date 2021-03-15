@@ -400,6 +400,16 @@ describe('object', function() {
           }
         }
       });
+
+      expect(
+        set({ a: null }, [ 'a', 'b', 'c' ], 'C')
+      ).to.eql({
+        a: {
+          b: {
+            c: 'C'
+          }
+        }
+      });
     });
 
 
