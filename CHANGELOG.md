@@ -6,6 +6,11 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.6.1
+
+* `FIX`: correct `set` handling of `0` keys ([#18](https://github.com/bpmn-io/min-dash/pull/18))
+* `FIX`: correct `set` scaffolding on `null` values ([#18](https://github.com/bpmn-io/min-dash/pull/18))
+
 ## 3.6.0
 
 * `FEAT`: add `set` utility ([#16](https://github.com/bpmn-io/min-dash/pull/16))
