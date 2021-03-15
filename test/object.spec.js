@@ -305,6 +305,14 @@ describe('object', function() {
       expect(set({}, ['a'], true)).to.eql({
         a: true
       });
+
+      expect(set({}, [''], 'A')).to.eql({
+        '': 'A'
+      });
+
+      expect(set({}, [ 0 ], 'A')).to.eql({
+        '0': 'A'
+      });
     });
 
 
@@ -312,10 +320,24 @@ describe('object', function() {
 
       expect(set([0, 1, 2], [1], 'A')).to.eql([ 0, 'A', 2]);
 
+      expect(set([0, 1, 2], [1], 0)).to.eql([ 0, 0, 2]);
+
       expect(set({
         a: [0, 0]
       }, [ 'a', 1 ], 1)).to.eql({
         a: [ 0, 1 ]
+      });
+
+      expect(
+        set({
+          a: [
+            { b: 'FOO' }
+          ]
+        }, [ 'a', 0, 'b' ], 'BAR')
+      ).to.eql({
+        a: [
+          { b: 'BAR' }
+        ]
       });
     });
 
@@ -336,6 +358,10 @@ describe('object', function() {
       expect(set({
         a: false
       }, [ 'a' ], undefined)).to.eql({});
+
+      expect(set({
+        '': false
+      }, [ '' ], undefined)).to.eql({});
     });
 
 
