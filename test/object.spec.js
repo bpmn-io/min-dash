@@ -5,7 +5,8 @@ import {
   assign,
   merge,
   omit,
-  set
+  set,
+  get
 } from '../lib/object';
 
 
@@ -435,6 +436,33 @@ describe('object', function() {
       expect(function() {
         set({}, [ '__proto__' ], { foo: 'bar' });
       }).to.throw(/illegal key/);
+    });
+
+  });
+
+
+  describe('get', function() {
+
+    it('should return object property', function() {
+      expect(get({}, ['a'])).to.equal(undefined);
+      expect(get({}, ['a'], 'FOO')).to.equal('FOO');
+
+      expect(get({ a: 0 }, ['a'])).to.equal(0);
+      expect(get({ a: 0 }, ['a'], 1)).to.equal(0);
+
+      expect(get({ a: { b: 0 } }, ['a', 'b'])).to.equal(0);
+      expect(get({ a: { } }, ['a', 'b'], 1)).to.equal(1);
+    });
+
+
+    it('should return array property', function() {
+      expect(get([], [ 0 ])).to.equal(undefined);
+      expect(get([], [ '0' ])).to.equal(undefined);
+      expect(get([], [ 0 ], 'FOO')).to.equal('FOO');
+
+      expect(get([[0, 1, 2]], [0, 1])).to.equal(1);
+      expect(get([[0, 1, 2]], [0, 3])).to.equal(undefined);
+      expect(get([[0, 1, 2]], [0, 3], 'FOO')).to.equal('FOO');
     });
 
   });
