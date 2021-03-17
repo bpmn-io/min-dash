@@ -452,6 +452,13 @@ describe('object', function() {
 
       expect(get({ a: { b: 0 } }, ['a', 'b'])).to.equal(0);
       expect(get({ a: { } }, ['a', 'b'], 1)).to.equal(1);
+
+      expect(get(null, ['a'])).to.equal(undefined);
+      expect(get(null, ['a'], 1)).to.equal(1);
+
+      expect(get({ a: null }, ['a'])).to.equal(null);
+      expect(get({ a: null }, ['a', 'b'])).to.equal(undefined);
+      expect(get({ a: null }, ['a', 'b'], 1)).to.equal(1);
     });
 
 
@@ -463,6 +470,11 @@ describe('object', function() {
       expect(get([[0, 1, 2]], [0, 1])).to.equal(1);
       expect(get([[0, 1, 2]], [0, 3])).to.equal(undefined);
       expect(get([[0, 1, 2]], [0, 3], 'FOO')).to.equal('FOO');
+
+      expect(get(null, [0])).to.equal(undefined);
+      expect(get([null], [0])).to.equal(null);
+      expect(get([null], [0, 3])).to.equal(undefined);
+      expect(get([null], [0, 3], 1)).to.equal(1);
     });
 
   });
