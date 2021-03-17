@@ -463,9 +463,9 @@ describe('object', function() {
 
 
     it('should return array property', function() {
-      expect(get([], [ 0 ])).to.equal(undefined);
-      expect(get([], [ '0' ])).to.equal(undefined);
-      expect(get([], [ 0 ], 'FOO')).to.equal('FOO');
+      expect(get([], [0])).to.equal(undefined);
+      expect(get([], ['0'])).to.equal(undefined);
+      expect(get([], [0], 'FOO')).to.equal('FOO');
 
       expect(get([[0, 1, 2]], [0, 1])).to.equal(1);
       expect(get([[0, 1, 2]], [0, 3])).to.equal(undefined);
