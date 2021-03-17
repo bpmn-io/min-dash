@@ -70,9 +70,9 @@ export function assign<T>(target: T, ...sources: any[]): T;
  *
  * @param target The target of the get operation.
  * @param path The path to the nested value.
- * @param value The default value to return if the property does not exist.
+ * @param defaultValue The result to return if the property does not exist.
  */
-export function get(target: any, path: (string|number)[], value?: any): any;
+export function get(target: any, path: (string|number)[], defaultValue?: any): any;
 
 /**
  * Sets a nested property of a given object to the specified value.
