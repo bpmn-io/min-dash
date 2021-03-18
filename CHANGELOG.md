@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.7.0
+
+* `FEAT`: add `get` utility ([#19](https://github.com/bpmn-io/min-dash/pull/19))
+
 ## 3.6.1
 
 * `FIX`: correct `set` handling of `0` keys ([#18](https://github.com/bpmn-io/min-dash/pull/18))
