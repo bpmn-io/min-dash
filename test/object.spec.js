@@ -155,6 +155,16 @@ describe('object', function() {
     });
 
 
+    it('should handle null objects', function() {
+
+      // when
+      const result = assign({ bar: 'Bar' }, null, undefined, false, 0, { foo: 'Foo' });
+
+      // then
+      expect(result).to.exist;
+    });
+
+
     it('should not override prototype', function() {
 
       function Bar() {}
