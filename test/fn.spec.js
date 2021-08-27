@@ -126,7 +126,7 @@ describe('fn', function() {
     });
 
 
-    it('should not #clearTimeout', function() {
+    it('should not repetitively call #clearTimeout', function() {
 
       let callback = sinon.spy();
       let debounced = debounce(callback, 100);
@@ -147,7 +147,45 @@ describe('fn', function() {
 
       // then
       expect(callback).to.have.been.calledOnce;
-      expect(clearTimeout).not.to.have.been.called;
+      expect(clearTimeout).to.have.been.calledOnce;
+    });
+
+
+    it('should #cancel', function() {
+
+      var callback = sinon.spy();
+      var debounced = debounce(callback, 100);
+
+      // when
+      debounced();
+      debounced.cancel();
+
+      // debounce timer elapsed
+      clock.tick(101);
+
+      // then
+      expect(callback).not.to.have.been.called;
+    });
+
+
+    it('should #flush', function() {
+
+      var callback = sinon.spy();
+      var debounced = debounce(callback, 100);
+
+      // when
+      debounced();
+      debounced.flush();
+
+      // then
+      expect(callback).to.have.been.calledOnce;
+
+      // but when
+      // debounce timer elapsed
+      clock.tick(101);
+
+      // then
+      expect(callback).to.have.been.calledOnce;
     });
 
   });
