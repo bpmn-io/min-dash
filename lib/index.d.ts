@@ -294,7 +294,7 @@ export function sortBy<T>(collection: Collection<T>, extractor: Extractor<T, num
  *
  * const matcher = matchPattern({ id: 1 });
  *
- * var element = find(elements, matcher);
+ * let element = find(elements, matcher);
  *
  * @param  {Object} pattern
  *

@@ -16,7 +16,7 @@ describe('lang', function() {
     it('should work for {}', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 1,
         e: undefined
       };
@@ -35,7 +35,7 @@ describe('lang', function() {
     it('should work for []', function() {
 
       // given
-      var arr = [ 1, 2, 3 ];
+      let arr = [ 1, 2, 3 ];
 
       // then
       expect(has(arr, '1')).to.be.true;

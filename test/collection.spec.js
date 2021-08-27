@@ -28,11 +28,11 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ 'A', 'B', 'C' ];
+      let arr = [ 'A', 'B', 'C' ];
 
       // when
-      var result = find(arr, (el) => el === 'B');
-      var resultByIndex = find(arr, (el, idx) => idx === 2);
+      let result = find(arr, (el) => el === 'B');
+      let resultByIndex = find(arr, (el, idx) => idx === 2);
 
       // then
       expect(result).to.eql('B');
@@ -43,14 +43,14 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         foo: 'FOO',
         bar: 'BAR'
       };
 
       // when
-      var result = find(obj, (el) => el === 'BAR');
-      var resultByIndex = find(obj, (el, key) => key === 'foo');
+      let result = find(obj, (el) => el === 'BAR');
+      let resultByIndex = find(obj, (el, key) => key === 'foo');
 
       // then
       expect(result).to.eql('BAR');
@@ -61,7 +61,7 @@ describe('collection', function() {
     it('should be null-safe', function() {
 
       // when
-      var result = find(null, (el) => el === 'BAR');
+      let result = find(null, (el) => el === 'BAR');
 
       // then
       expect(result).not.to.exist;
@@ -71,10 +71,10 @@ describe('collection', function() {
     it('should strict equality check arg', function() {
 
       // given
-      var arr = [ 0, '', null ];
+      let arr = [ 0, '', null ];
 
       // when
-      var result = find(arr, 0);
+      let result = find(arr, 0);
 
       // then
       expect(result).to.equal(0);
@@ -88,11 +88,11 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ 'A', 'B', 'C' ];
+      let arr = [ 'A', 'B', 'C' ];
 
       // when
-      var result = findIndex(arr, (el) => el === 'B');
-      var resultByIndex = findIndex(arr, (el, idx) => idx === 2);
+      let result = findIndex(arr, (el) => el === 'B');
+      let resultByIndex = findIndex(arr, (el, idx) => idx === 2);
 
       // then
       expect(result).to.equal(1);
@@ -103,14 +103,14 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         foo: 'FOO',
         bar: 'BAR'
       };
 
       // when
-      var result = findIndex(obj, (el) => el === 'BAR');
-      var resultByIndex = findIndex(obj, (el, key) => key === 'foo');
+      let result = findIndex(obj, (el) => el === 'BAR');
+      let resultByIndex = findIndex(obj, (el, key) => key === 'foo');
 
       // then
       expect(result).to.eql('bar');
@@ -121,7 +121,7 @@ describe('collection', function() {
     it('should be null-safe', function() {
 
       // when
-      var result = findIndex(null, (el) => el === 'BAR');
+      let result = findIndex(null, (el) => el === 'BAR');
 
       // then
       expect(result).to.be.undefined;
@@ -131,14 +131,14 @@ describe('collection', function() {
     it('should strict equality check arg', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 0,
         b: '',
         c: null
       };
 
       // when
-      var result = findIndex(obj, null);
+      let result = findIndex(obj, null);
 
       // then
       expect(result).to.equal('c');
@@ -152,11 +152,11 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ 50, 200, 500 ];
+      let arr = [ 50, 200, 500 ];
 
       // when
-      var result = filter(arr, (el) => el > 100);
-      var resultByIndex = filter(arr, (el, idx) => idx < 2);
+      let result = filter(arr, (el) => el > 100);
+      let resultByIndex = filter(arr, (el, idx) => idx < 2);
 
       // then
       expect(result).to.eql([ 200, 500 ]);
@@ -167,15 +167,15 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 1,
         b: 2,
         c: 3
       };
 
       // when
-      var result = filter(obj, (el) => el > 1);
-      var resultByIndex = filter(obj, (el, key) => key !== 'b');
+      let result = filter(obj, (el) => el > 1);
+      let resultByIndex = filter(obj, (el, key) => key !== 'b');
 
       // then
       expect(result).to.eql([ 2, 3 ]);
@@ -186,7 +186,7 @@ describe('collection', function() {
     it('should be null-safe', function() {
 
       // when
-      var result = filter(null, (a) => a);
+      let result = filter(null, (a) => a);
 
       // then
       expect(result).to.eql([]);
@@ -200,9 +200,9 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ {}, {}, {} ];
+      let arr = [ {}, {}, {} ];
 
-      var called = 0;
+      let called = 0;
 
       // when
       forEach(arr, function(el, idx) {
@@ -220,13 +220,13 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: {},
         b: {},
         c: {}
       };
 
-      var called = 0;
+      let called = 0;
 
       // when
       forEach(obj, function(el, key) {
@@ -244,9 +244,9 @@ describe('collection', function() {
     it('should break on returning <false>', function() {
 
       // given
-      var arr = [ 1, 2, 3 ];
+      let arr = [ 1, 2, 3 ];
 
-      var called = 0;
+      let called = 0;
 
       // when
       forEach(arr, function(el, idx) {
@@ -274,9 +274,9 @@ describe('collection', function() {
     it('should return the result that stopped the iteration', function() {
 
       // given
-      var arr = [ 1, 2, 3 ];
+      let arr = [ 1, 2, 3 ];
 
-      var result;
+      let result;
 
       // when
       result = forEach(arr, function(el) {
@@ -298,13 +298,13 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var obj = { };
-      var arr = [ 1, obj, false ];
+      let obj = { };
+      let arr = [ 1, obj, false ];
 
       // when
-      var filtered = without(arr, obj);
-      var filteredByMatcher = without(arr, (e) => e);
-      var filteredByIndex = without(arr, (e, idx) => idx === 2);
+      let filtered = without(arr, obj);
+      let filteredByMatcher = without(arr, (e) => e);
+      let filteredByIndex = without(arr, (e, idx) => idx === 2);
 
       // then
       expect(filtered).to.eql([ 1, false ]);
@@ -329,10 +329,10 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ 4, 4, 4 ];
+      let arr = [ 4, 4, 4 ];
 
       // when
-      var result = reduce(arr, (a, val) => a + val, 0);
+      let result = reduce(arr, (a, val) => a + val, 0);
 
       // then
       expect(result).to.eql(12);
@@ -342,14 +342,14 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 1,
         b: 2,
         c: 3
       };
 
       // when
-      var result = reduce(obj, (a, val) => a + val, 0);
+      let result = reduce(obj, (a, val) => a + val, 0);
 
       // then
       expect(result).to.eql(6);
@@ -359,7 +359,7 @@ describe('collection', function() {
     it('should be null-safe', function() {
 
       expect(function() {
-        var result = reduce(null, (a, val) => a + val, 0);
+        let result = reduce(null, (a, val) => a + val, 0);
 
         expect(result).to.equal(0);
       }).not.to.throw;
@@ -374,11 +374,11 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ 4, 4, 4 ];
+      let arr = [ 4, 4, 4 ];
 
       // when
-      var result = every(arr, (val) => val === 4);
-      var resultByIndex = every(arr, (val, idx) => idx < 2);
+      let result = every(arr, (val) => val === 4);
+      let resultByIndex = every(arr, (val, idx) => idx < 2);
 
       // then
       expect(result).to.be.true;
@@ -389,15 +389,15 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 4,
         b: 4,
         c: 4
       };
 
       // when
-      var result = every(obj, (val) => val === 4);
-      var resultByIndex = every(obj, (val, key) => key !== 'c');
+      let result = every(obj, (val) => val === 4);
+      let resultByIndex = every(obj, (val, key) => key !== 'c');
 
       // then
       expect(result).to.be.true;
@@ -415,10 +415,10 @@ describe('collection', function() {
     it('should always return boolean', function() {
 
       // given
-      var collection = [ 1, true, 'word' ];
+      let collection = [ 1, true, 'word' ];
 
       // when
-      var result = every(collection, val => val);
+      let result = every(collection, val => val);
 
       // then
       expect(result).to.be.true;
@@ -432,13 +432,13 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ 1, 2, 3 ];
+      let arr = [ 1, 2, 3 ];
 
       // when
-      var resultTrue = some(arr, (val) => val === 3);
-      var resultFalse = some(arr, (val) => val === false);
+      let resultTrue = some(arr, (val) => val === 3);
+      let resultFalse = some(arr, (val) => val === false);
 
-      var resultByIndex = some(arr, (val, idx) => idx === 4);
+      let resultByIndex = some(arr, (val, idx) => idx === 4);
 
       // then
       expect(resultTrue).to.be.true;
@@ -451,17 +451,17 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 1,
         b: 2,
         c: 3
       };
 
       // when
-      var resultTrue = some(obj, (val) => val === 3);
-      var resultFalse = some(obj, (val) => val === false);
+      let resultTrue = some(obj, (val) => val === 3);
+      let resultFalse = some(obj, (val) => val === false);
 
-      var resultByIndex = some(obj, (val, key) => key === 'blub');
+      let resultByIndex = some(obj, (val, key) => key === 'blub');
 
       // then
       expect(resultTrue).to.be.true;
@@ -485,10 +485,10 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [ 1, 2, 3];
+      let arr = [ 1, 2, 3];
 
       // when
-      var result = map(arr, (val) => val + 3);
+      let result = map(arr, (val) => val + 3);
 
       // then
       expect(result).to.eql([ 4, 5, 6 ]);
@@ -498,14 +498,14 @@ describe('collection', function() {
     it('should work on Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 1,
         b: 2,
         c: 3
       };
 
       // when
-      var result = map(obj, (val) => val + 3);
+      let result = map(obj, (val) => val + 3);
 
       // then
       expect(result).to.eql([ 4, 5, 6 ]);
@@ -577,7 +577,7 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      var arr = [
+      let arr = [
         { a: '1' },
         { a: '2', b: '1' },
         { a: '2', b: '2' },
@@ -585,8 +585,8 @@ describe('collection', function() {
       ];
 
       // when
-      var groupedByAttr = groupBy(arr, 'a');
-      var groupedByFn = groupBy(arr, (el) => el.b);
+      let groupedByAttr = groupBy(arr, 'a');
+      let groupedByFn = groupBy(arr, (el) => el.b);
 
       // then
       expect(groupedByAttr).to.eql({
@@ -610,14 +610,14 @@ describe('collection', function() {
     it('should use supplied group', function() {
 
       // given
-      var group = { '1': [ 2 ] };
+      let group = { '1': [ 2 ] };
 
-      var arr = [
+      let arr = [
         { a: '1' }
       ];
 
       // when
-      var groupedByAttr = groupBy(arr, 'a', group);
+      let groupedByAttr = groupBy(arr, 'a', group);
 
       // then
       expect(groupedByAttr).to.eql({
@@ -634,22 +634,22 @@ describe('collection', function() {
     it('should process by attribute', function() {
 
       // given
-      var arr = [
+      let arr = [
         { a: 1 },
         { a: 2 }
       ];
 
-      var arr2 = [
+      let arr2 = [
         { a: 1 },
         { a: 3 }
       ];
 
-      var arr3 = [
+      let arr3 = [
         { a: 2 }
       ];
 
       // when
-      var unique = uniqueBy('a', arr, arr2, arr3);
+      let unique = uniqueBy('a', arr, arr2, arr3);
 
       // then
       expect(unique[0]).to.equal(arr[0]);
@@ -681,7 +681,7 @@ describe('collection', function() {
     it('should process by attribute', function() {
 
       // given
-      var arr = [
+      let arr = [
         { a: 1 },
         { a: 2 },
         { a: 1 },
@@ -690,7 +690,7 @@ describe('collection', function() {
       ];
 
       // when
-      var sorted = sortBy(arr, 'a');
+      let sorted = sortBy(arr, 'a');
 
       // then
       expect(sorted[0]).to.equal(arr[0]);
@@ -706,7 +706,7 @@ describe('collection', function() {
     it('should process by discriminator fn', function() {
 
       // given
-      var arr = [
+      let arr = [
         { a: 1 },
         { a: 2 },
         { a: 1 },
@@ -715,7 +715,7 @@ describe('collection', function() {
       ];
 
       // when
-      var sorted = sortBy(arr, (e) => e.a * -1);
+      let sorted = sortBy(arr, (e) => e.a * -1);
 
       // then
       expect(sorted[0]).to.equal(arr[3]);
@@ -735,7 +735,7 @@ describe('collection', function() {
     it('should strictly equal { key: value }', function() {
 
       // when
-      var matcher = matchPattern({ a: 1 });
+      let matcher = matchPattern({ a: 1 });
 
       // then
       expect(matcher({ a: 1, b: 10 })).to.be.true;
@@ -751,7 +751,7 @@ describe('collection', function() {
     it('should return # of keys for Array', function() {
 
       // given
-      var arr = [ 1, 2, 3 ];
+      let arr = [ 1, 2, 3 ];
 
       // then
       expect(size(arr)).to.eql(3);
@@ -761,7 +761,7 @@ describe('collection', function() {
     it('should return # of keys for Object', function() {
 
       // given
-      var obj = {
+      let obj = {
         a: 1,
         b: true,
         c: undefined
