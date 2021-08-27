@@ -21,16 +21,16 @@ describe('fn', function() {
     it('should bind fn', function() {
 
       // given
-      var fn = function() {
+      let fn = function() {
         return this.foo;
       };
 
-      var target = { foo: 'FOO' };
+      let target = { foo: 'FOO' };
 
       // when
-      var boundFn = bind(fn, target);
+      let boundFn = bind(fn, target);
 
-      var result = boundFn();
+      let result = boundFn();
 
       // then
       expect(result).to.eql('FOO');
@@ -41,7 +41,7 @@ describe('fn', function() {
 
   describe('debounce', function() {
 
-    var clock, clearTimeout;
+    let clock, clearTimeout;
 
     beforeEach(function() {
       clock = sinon.useFakeTimers();
@@ -58,8 +58,8 @@ describe('fn', function() {
 
     it('should debounce fn', function() {
 
-      var callback = sinon.spy();
-      var debounced = debounce(callback, 100);
+      let callback = sinon.spy();
+      let debounced = debounce(callback, 100);
 
       // when
       debounced();
@@ -89,8 +89,8 @@ describe('fn', function() {
 
     it('should pass last args', function() {
 
-      var callback = sinon.spy();
-      var debounced = debounce(callback, 100);
+      let callback = sinon.spy();
+      let debounced = debounce(callback, 100);
 
       // when
       debounced(1);
@@ -106,13 +106,13 @@ describe('fn', function() {
 
     it('should use last this', function() {
 
-      var self = {};
+      let self = {};
 
-      var callback = sinon.spy(function() {
+      let callback = sinon.spy(function() {
         expect(this).to.equal(self);
       });
 
-      var debounced = debounce(callback, 100);
+      let debounced = debounce(callback, 100);
 
       // when
       debounced.apply({});
@@ -128,8 +128,8 @@ describe('fn', function() {
 
     it('should not #clearTimeout', function() {
 
-      var callback = sinon.spy();
-      var debounced = debounce(callback, 100);
+      let callback = sinon.spy();
+      let debounced = debounce(callback, 100);
 
       clearTimeout = sinon.spy(global, 'clearTimeout');
 
@@ -155,7 +155,7 @@ describe('fn', function() {
 
   describe('throttle', function() {
 
-    var clock;
+    let clock;
 
     beforeEach(function() {
       clock = sinon.useFakeTimers();
@@ -168,8 +168,8 @@ describe('fn', function() {
 
     it('should throttle fn', function() {
 
-      var callback = sinon.spy();
-      var throttled = throttle(callback, 100);
+      let callback = sinon.spy();
+      let throttled = throttle(callback, 100);
 
       // when
       throttled();

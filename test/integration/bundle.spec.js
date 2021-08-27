@@ -6,7 +6,7 @@ describe('integration', function() {
   describe('bundle', function() {
 
     // when
-    var md = require('../../');
+    const md = require('../../');
 
     it('should expose array utils', function() {
 

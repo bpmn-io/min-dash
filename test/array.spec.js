@@ -12,7 +12,7 @@ describe('array', function() {
     it('should flatten, one level deep', function() {
 
       // given
-      var arr = [
+      let arr = [
         [ 'A', 1 ],
         [ 'B' ],
         [ 'C', [ 1, 2, 3 ] ],
