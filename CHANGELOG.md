@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.8.1
+
+* `FIX`: prevent prototype pollution via `set` ([#21](https://github.com/bpmn-io/min-dash/pull/21))
+
 ## 3.8.0
 
 * `FEAT`: provide lodash-style `cancel` and `flush` on debounced function
