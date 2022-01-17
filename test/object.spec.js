@@ -448,6 +448,27 @@ describe('object', function() {
       }).to.throw(/illegal key/);
     });
 
+
+    it('should not allow prototype polution via constructor', function() {
+      expect(function() {
+        set({}, ['constructor', 'prototype', 'polluted'], 'success');
+      }).to.throw(/illegal key/);
+    });
+
+
+    it('should not allow array as key', function() {
+      expect(function() {
+        set({}, [['__proto__'], 'polluted'], 'success');
+      }).to.throw(/illegal key type/);
+    });
+
+
+    it('should not allow object as key', function() {
+      expect(function() {
+        set({}, [{}, 'polluted'], 'success');
+      }).to.throw(/illegal key type/);
+    });
+
   });
 
 
