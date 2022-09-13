@@ -1,8 +1,8 @@
-var expect = require('chai').expect;
+import { expect } from 'chai';
 
 import {
   flatten
-} from '../lib/array';
+} from '../lib/array.js';
 
 
 describe('array', function() {
