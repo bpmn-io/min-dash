@@ -485,7 +485,7 @@ describe('collection', function() {
     it('should work on Array', function() {
 
       // given
-      let arr = [ 1, 2, 3];
+      let arr = [ 1, 2, 3 ];
 
       // when
       let result = map(arr, (val) => val + 3);
@@ -533,7 +533,7 @@ describe('collection', function() {
 
     it('should work on Object', function() {
 
-      expect(values({ a: 'A', b: 'B' })).to.eql([ 'A', 'B']);
+      expect(values({ a: 'A', b: 'B' })).to.eql([ 'A', 'B' ]);
 
     });
 
@@ -558,7 +558,7 @@ describe('collection', function() {
 
     it('should work on Object', function() {
 
-      expect(keys({ a: 'A', b: 'B' })).to.eql([ 'a', 'b']);
+      expect(keys({ a: 'A', b: 'B' })).to.eql([ 'a', 'b' ]);
 
     });
 

@@ -305,7 +305,7 @@ describe('object', function() {
       let x = {};
 
       // when
-      let modified = set(x, ['a'], true);
+      let modified = set(x, [ 'a' ], true);
 
       // then
       expect(modified).to.equal(x);
@@ -313,11 +313,11 @@ describe('object', function() {
 
 
     it('should set property value', function() {
-      expect(set({}, ['a'], true)).to.eql({
+      expect(set({}, [ 'a' ], true)).to.eql({
         a: true
       });
 
-      expect(set({}, [''], 'A')).to.eql({
+      expect(set({}, [ '' ], 'A')).to.eql({
         '': 'A'
       });
 
@@ -329,12 +329,12 @@ describe('object', function() {
 
     it('should set array value', function() {
 
-      expect(set([0, 1, 2], [1], 'A')).to.eql([ 0, 'A', 2]);
+      expect(set([ 0, 1, 2 ], [ 1 ], 'A')).to.eql([ 0, 'A', 2 ]);
 
-      expect(set([0, 1, 2], [1], 0)).to.eql([ 0, 0, 2]);
+      expect(set([ 0, 1, 2 ], [ 1 ], 0)).to.eql([ 0, 0, 2 ]);
 
       expect(set({
-        a: [0, 0]
+        a: [ 0, 0 ]
       }, [ 'a', 1 ], 1)).to.eql({
         a: [ 0, 1 ]
       });
@@ -355,10 +355,10 @@ describe('object', function() {
 
     it('should set array with string keys', function() {
 
-      expect(set([0, 1, 2], ['1'], 'A')).to.eql([ 0, 'A', 2]);
+      expect(set([ 0, 1, 2 ], [ '1' ], 'A')).to.eql([ 0, 'A', 2 ]);
 
       expect(set({
-        a: [0, 0]
+        a: [ 0, 0 ]
       }, [ 'a', '1' ], 1)).to.eql({
         a: [ 0, 1 ]
       });
@@ -382,7 +382,7 @@ describe('object', function() {
         a: {
           b: { }
         }
-      }, ['a', 'b'], false)).to.eql({
+      }, [ 'a', 'b' ], false)).to.eql({
         a: {
           b: false
         }
@@ -451,21 +451,21 @@ describe('object', function() {
 
     it('should not allow prototype polution via constructor', function() {
       expect(function() {
-        set({}, ['constructor', 'prototype', 'polluted'], 'success');
+        set({}, [ 'constructor', 'prototype', 'polluted' ], 'success');
       }).to.throw(/illegal key/);
     });
 
 
     it('should not allow array as key', function() {
       expect(function() {
-        set({}, [['__proto__'], 'polluted'], 'success');
+        set({}, [ [ '__proto__' ], 'polluted' ], 'success');
       }).to.throw(/illegal key type/);
     });
 
 
     it('should not allow object as key', function() {
       expect(function() {
-        set({}, [{}, 'polluted'], 'success');
+        set({}, [ {}, 'polluted' ], 'success');
       }).to.throw(/illegal key type/);
     });
 
@@ -475,37 +475,37 @@ describe('object', function() {
   describe('get', function() {
 
     it('should return object property', function() {
-      expect(get({}, ['a'])).to.equal(undefined);
-      expect(get({}, ['a'], 'FOO')).to.equal('FOO');
+      expect(get({}, [ 'a' ])).to.equal(undefined);
+      expect(get({}, [ 'a' ], 'FOO')).to.equal('FOO');
 
-      expect(get({ a: 0 }, ['a'])).to.equal(0);
-      expect(get({ a: 0 }, ['a'], 1)).to.equal(0);
+      expect(get({ a: 0 }, [ 'a' ])).to.equal(0);
+      expect(get({ a: 0 }, [ 'a' ], 1)).to.equal(0);
 
-      expect(get({ a: { b: 0 } }, ['a', 'b'])).to.equal(0);
-      expect(get({ a: { } }, ['a', 'b'], 1)).to.equal(1);
+      expect(get({ a: { b: 0 } }, [ 'a', 'b' ])).to.equal(0);
+      expect(get({ a: { } }, [ 'a', 'b' ], 1)).to.equal(1);
 
-      expect(get(null, ['a'])).to.equal(undefined);
-      expect(get(null, ['a'], 1)).to.equal(1);
+      expect(get(null, [ 'a' ])).to.equal(undefined);
+      expect(get(null, [ 'a' ], 1)).to.equal(1);
 
-      expect(get({ a: null }, ['a'])).to.equal(null);
-      expect(get({ a: null }, ['a', 'b'])).to.equal(undefined);
-      expect(get({ a: null }, ['a', 'b'], 1)).to.equal(1);
+      expect(get({ a: null }, [ 'a' ])).to.equal(null);
+      expect(get({ a: null }, [ 'a', 'b' ])).to.equal(undefined);
+      expect(get({ a: null }, [ 'a', 'b' ], 1)).to.equal(1);
     });
 
 
     it('should return array property', function() {
-      expect(get([], [0])).to.equal(undefined);
-      expect(get([], ['0'])).to.equal(undefined);
-      expect(get([], [0], 'FOO')).to.equal('FOO');
+      expect(get([], [ 0 ])).to.equal(undefined);
+      expect(get([], [ '0' ])).to.equal(undefined);
+      expect(get([], [ 0 ], 'FOO')).to.equal('FOO');
 
-      expect(get([[0, 1, 2]], [0, 1])).to.equal(1);
-      expect(get([[0, 1, 2]], [0, 3])).to.equal(undefined);
-      expect(get([[0, 1, 2]], [0, 3], 'FOO')).to.equal('FOO');
+      expect(get([ [ 0, 1, 2 ] ], [ 0, 1 ])).to.equal(1);
+      expect(get([ [ 0, 1, 2 ] ], [ 0, 3 ])).to.equal(undefined);
+      expect(get([ [ 0, 1, 2 ] ], [ 0, 3 ], 'FOO')).to.equal('FOO');
 
-      expect(get(null, [0])).to.equal(undefined);
-      expect(get([null], [0])).to.equal(null);
-      expect(get([null], [0, 3])).to.equal(undefined);
-      expect(get([null], [0, 3], 1)).to.equal(1);
+      expect(get(null, [ 0 ])).to.equal(undefined);
+      expect(get([ null ], [ 0 ])).to.equal(null);
+      expect(get([ null ], [ 0, 3 ])).to.equal(undefined);
+      expect(get([ null ], [ 0, 3 ], 1)).to.equal(1);
     });
 
   });

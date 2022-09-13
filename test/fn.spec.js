@@ -116,7 +116,7 @@ describe('fn', function() {
 
       // when
       debounced.apply({});
-      debounced.apply(self, ['BAR', 3 ]);
+      debounced.apply(self, [ 'BAR', 3 ]);
 
       // ticked...
       clock.tick(101);
