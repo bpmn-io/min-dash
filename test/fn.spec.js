@@ -1,9 +1,10 @@
-var chai = require('chai');
+import {
+  default as chai,
+  expect
+} from 'chai';
 
-var expect = chai.expect;
-
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 
 chai.use(sinonChai);
 
@@ -11,7 +12,7 @@ import {
   bind,
   debounce,
   throttle
-} from '../lib/fn';
+} from '../lib/fn.js';
 
 
 describe('fn', function() {

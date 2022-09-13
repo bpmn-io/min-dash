@@ -1,24 +1,17 @@
-import {
-  expect
-} from 'chai';
-
-import {
-  flatten,
-  find,
-  bind,
-  isArray,
-  pick
-} from '../../dist/index.esm.js';
+var expect = require('chai').expect;
 
 
 describe('integration', function() {
 
   describe('bundle', function() {
 
+    // when
+    const md = require('../..');
+
     it('should expose array utils', function() {
 
       // then
-      expect(flatten).to.exist;
+      expect(md.flatten).to.exist;
 
     });
 
@@ -26,7 +19,7 @@ describe('integration', function() {
     it('should expose collection utils', function() {
 
       // then
-      expect(find).to.exist;
+      expect(md.find).to.exist;
 
     });
 
@@ -34,7 +27,7 @@ describe('integration', function() {
     it('should expose fn utils', function() {
 
       // then
-      expect(bind).to.exist;
+      expect(md.bind).to.exist;
 
     });
 
@@ -42,7 +35,7 @@ describe('integration', function() {
     it('should expose lang utils', function() {
 
       // then
-      expect(isArray).to.exist;
+      expect(md.isArray).to.exist;
 
     });
 
@@ -50,7 +43,7 @@ describe('integration', function() {
     it('should expose object utils', function() {
 
       // then
-      expect(pick).to.exist;
+      expect(md.pick).to.exist;
 
     });
 

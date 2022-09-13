@@ -1,4 +1,6 @@
-var expect = require('chai').expect;
+import {
+  expect
+} from 'chai';
 
 import {
   has,
@@ -6,7 +8,7 @@ import {
   isFunction,
   isUndefined,
   isNil
-} from '../lib/lang';
+} from '../lib/lang.js';
 
 
 describe('lang', function() {
