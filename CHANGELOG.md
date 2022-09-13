@@ -6,6 +6,14 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.0.0
+
+* `FEAT`: use ES2018
+
+### Breaking changes
+
+* The library exposes now ES2018 code. Use a bundler if you need to support older syntax.
+
 ## 3.8.1
 
 * `FIX`: prevent prototype pollution via `set` ([#21](https://github.com/bpmn-io/min-dash/pull/21))
