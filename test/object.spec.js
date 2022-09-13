@@ -1,4 +1,6 @@
-var expect = require('chai').expect;
+import {
+  expect
+} from 'chai';
 
 import {
   pick,
@@ -7,7 +9,7 @@ import {
   omit,
   set,
   get
-} from '../lib/object';
+} from '../lib/object.js';
 
 
 describe('object', function() {

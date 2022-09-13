@@ -1,4 +1,6 @@
-var expect = require('chai').expect;
+import {
+  expect
+} from 'chai';
 
 import {
   find,
@@ -18,7 +20,7 @@ import {
   size,
   sortBy,
   matchPattern
-} from '../lib/collection';
+} from '../lib/collection.js';
 
 
 describe('collection', function() {
