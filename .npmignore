@@ -1,9 +1,0 @@
-.github
-!dist
-test
-lib
-.babelrc
-.eslintignore
-.eslintrc
-CHANGELOG.md
-rollup.config.js
