@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "files": [
-    "/dist"
+    "dist"
   ],
   "scripts": {
     "all": "run-s lint test distro",
