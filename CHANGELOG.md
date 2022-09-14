@@ -12,7 +12,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ### Breaking changes
 
-* The library exposes now ES2018 code. Use a bundler if you need to support older syntax.
+* The library exposes now ES2018 code. You have to transpile it yourself to support older (ES5) syntax.
 
 ## 3.8.1
 
