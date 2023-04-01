@@ -2,10 +2,10 @@
  * Debounce fn, calling it only once if
  * the given time elapsed between calls.
  *
- * @param  {Function} fn
- * @param  {Number} timeout
+ * @param fn
+ * @param timeout
  *
- * @return {Function} debounced function
+ * @return debounced function
  */
 export function debounce(fn: Function, timeout: number): (...args: any[]) => void;
 
@@ -13,26 +13,27 @@ export function debounce(fn: Function, timeout: number): (...args: any[]) => voi
  * Throttle fn, calling at most once
  * in the given interval.
  *
- * @param  {Function} fn
- * @param  {Number} interval
+ * @param fn
+ * @param interval
  *
- * @return {Function} throttled function
+ * @return throttled function
  */
 export function throttle(fn: Function, interval: number): (...args: any[]) => void;
 
 /**
  * Bind function against target <this>.
  *
- * @param  {Function} fn
- * @param  {Object}   target
+ * @param fn
+ * @param target
  *
- * @return {Function} bound function
+ * @return bound function
  */
 export function bind<T extends Function>(fn: T, target: object): T;
 
 /**
  * Copy the values of all of the enumerable own properties from one or more source objects to a
  * target object. Returns the target object.
+ *
  * @param target The target object to copy to.
  * @param source The source object from which to copy properties.
  */
@@ -41,6 +42,7 @@ export function assign<T, U>(target: T, source: U): T & U;
 /**
  * Copy the values of all of the enumerable own properties from one or more source objects to a
  * target object. Returns the target object.
+ *
  * @param target The target object to copy to.
  * @param source1 The first source object from which to copy properties.
  * @param source2 The second source object from which to copy properties.
@@ -50,6 +52,7 @@ export function assign<T, U, V>(target: T, source1: U, source2: V): T & U & V;
 /**
  * Copy the values of all of the enumerable own properties from one or more source objects to a
  * target object. Returns the target object.
+ *
  * @param target The target object to copy to.
  * @param source1 The first source object from which to copy properties.
  * @param source2 The second source object from which to copy properties.
@@ -60,6 +63,7 @@ export function assign<T, U, V, W>(target: T, source1: U, source2: V, source3: W
 /**
  * Copy the values of all of the enumerable own properties from one or more source objects to a
  * target object. Returns the target object.
+ *
  * @param target The target object to copy to.
  * @param sources One or more source objects from which to copy properties
  */
@@ -91,10 +95,10 @@ export function pick<T>(target: T, properties: (keyof T)[]): Pick<T, keyof T>;
 /**
  * Pick all target properties, excluding the given ones.
  *
- * @param {Object} target
- * @param {Array} properties
+ * @param target
+ * @param properties
  *
- * @return {Object} target
+ * @return target
  */
 export function omit<T>(target: T, properties: (keyof T)[]): Exclude<T, keyof T>;
 
@@ -118,17 +122,17 @@ export function isString(obj: any): obj is string;
 /**
  * Ensure collection is an array.
  *
- * @param {Object} obj
+ * @param obj
  */
 export function ensureArray<T>(obj: Collection<T>): void | never;
 
 /**
  * Return true, if target owns a property with the given key.
  *
- * @param {Object} target
- * @param {String} key
+ * @param target
+ * @param key
  *
- * @return {Boolean}
+ * @return
  */
 export function has(target: any, key: string): boolean;
 
@@ -145,30 +149,30 @@ export type Collection<T> = KeyValueCollection<T> | ArrayCollection<T>;
 /**
  * Find element in collection.
  *
- * @param  {Array|Object} collection
- * @param  {Function|Object} matcher
+ * @param collection
+ * @param matcher
  *
- * @return {Object}
+ * @return
  */
 export function find<T>(collection: Collection<T>, matcher: Matcher<T>): T | undefined;
 
 /**
  * Find element index in collection.
  *
- * @param  {Array|Object} collection
- * @param  {Function} matcher
+ * @param collection
+ * @param matcher
  *
- * @return {Object}
+ * @return
  */
 export function findIndex<T>(collection: Collection<T>, matcher: Matcher<T>): number | undefined;
 
 /**
  * Find element in collection.
  *
- * @param  {Array|Object} collection
- * @param  {Function} matcher
+ * @param collection
+ * @param matcher
  *
- * @return {Array} result
+ * @return result
  */
 export function filter<T>(collection: Collection<T>, matcher: Matcher<T>): T[];
 
@@ -176,31 +180,31 @@ export function filter<T>(collection: Collection<T>, matcher: Matcher<T>): T[];
  * Iterate over collection; returning something
  * (non-undefined) will stop iteration.
  *
- * @param  {Array|Object} collection
- * @param  {Function} iterator
+ * @param collection
+ * @param iterator
  *
- * @return {Object} return result that stopped the iteration
+ * @return return result that stopped the iteration
  */
 export function forEach<T>(collection: Collection<T>, iterator: (item: T, convertKey: any /* TODO */) => boolean | void): T;
 
 /**
  * Return collection without element.
  *
- * @param  {Array} arr
- * @param  {Function} matcher
+ * @param arr
+ * @param matcher
  *
- * @return {Array}
+ * @return
  */
 export function without<T>(arr: T[], matcher: Matcher<T>): T[];
 
 /**
  * Reduce collection, returning a single result.
  *
- * @param  {Object|Array} collection
- * @param  {Function} iterator
- * @param  {Any} result
+ * @param collection
+ * @param iterator
+ * @param result
  *
- * @return {Any} result returned from last iterator
+ * @return result returned from last iterator
  */
 export function reduce<T>(collection: Collection<T>, iterator: (...args: any[]) => T, result: T): T;
 
@@ -208,10 +212,10 @@ export function reduce<T>(collection: Collection<T>, iterator: (...args: any[]) 
  * Return true if every element in the collection
  * matches the criteria.
  *
- * @param  {Object|Array} collection
- * @param  {Function} matcher
+ * @param collection
+ * @param matcher
  *
- * @return {Boolean}
+ * @return
  */
 export function every<T>(collection: Collection<T>, matcher: Matcher<T>): boolean;
 
@@ -219,10 +223,10 @@ export function every<T>(collection: Collection<T>, matcher: Matcher<T>): boolea
  * Return true if some elements in the collection
  * match the criteria.
  *
- * @param  {Object|Array} collection
- * @param  {Function} matcher
+ * @param collection
+ * @param matcher
  *
- * @return {Boolean}
+ * @return
  */
 export function some<T>(collection: Collection<T>, matcher: Matcher<T>): boolean;
 
@@ -230,47 +234,47 @@ export function some<T>(collection: Collection<T>, matcher: Matcher<T>): boolean
  * Transform a collection into another collection
  * by piping each member through the given fn.
  *
- * @param  {Object|Array}   collection
- * @param  {Function} fn
+ * @param collection
+ * @param fn
  *
- * @return {Array} transformed collection
+ * @return transformed collection
  */
 export function map<T, U>(collection: Collection<T>, fn: (value: T, key: number) => U): U[];
 
 /**
  * Get the collections keys.
  *
- * @param  {Object|Array} collection
+ * @param collection
  *
- * @return {Array}
+ * @return
  */
 export function keys<T>(collection: Collection<T>): T extends Array<any> ? number[] : (keyof T)[];
 
 /**
  * Shorthand for `keys(o).length`.
  *
- * @param  {Object|Array} collection
+ * @param collection
  *
- * @return {Number}
+ * @return
  */
 export function size<T>(collection: Collection<T>): number;
 
 /**
  * Get the values in the collection.
  *
- * @param  {Object|Array} collection
+ * @param collection
  *
- * @return {Array}
+ * @return
  */
 export function values<T>(collection: Collection<T>): T[];
 
 /**
  * Group collection members by attribute.
  *
- * @param  {Object|Array} collection
- * @param  {Function} extractor
+ * @param collection
+ * @param extractor
  *
- * @return {Object} map with { attrValue => [ a, b, c ] }
+ * @return map with { attrValue => [ a, b, c ] }
  */
 export function groupBy<T>(collection: Collection<T>, extractor: Extractor<T>, grouped?: any): { [attrValue: string]: any[] };
 
@@ -280,10 +284,10 @@ export function unionBy<T>(extractor: Extractor<T>, ...collections: Collection<T
 /**
  * Sort collection by criteria.
  *
- * @param  {Object|Array} collection
- * @param  {String|Function} extractor
+ * @param collection
+ * @param extractor
  *
- * @return {Array}
+ * @return
  */
 export function sortBy<T>(collection: Collection<T>, extractor: Extractor<T, number | string>): T[];
 
@@ -296,17 +300,17 @@ export function sortBy<T>(collection: Collection<T>, extractor: Extractor<T, num
  *
  * let element = find(elements, matcher);
  *
- * @param  {Object} pattern
+ * @param pattern
  *
- * @return {Function} matcherFn
+ * @return matcherFn
  */
 export function matchPattern<T>(pattern: T): (e: Partial<T>) => boolean;
 
 /**
  * Flatten array, one level deep.
  *
- * @param {Array<?>} arr
+ * @param arr
  *
- * @return {Array<?>}
+ * @return
  */
 export function flatten<T>(arr: T[][]): T[];
