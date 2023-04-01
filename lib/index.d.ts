@@ -206,7 +206,7 @@ export function without<T>(arr: T[], matcher: Matcher<T>): T[];
  *
  * @return result returned from last iterator
  */
-export function reduce<T>(collection: Collection<T>, iterator: (...args: any[]) => T, result: T): T;
+export function reduce<T, V>(collection: Collection<T>, iterator: (result: V, entry: T, index: any) => V, result: V): V;
 
 /**
  * Return true if every element in the collection
