@@ -10,17 +10,18 @@
     "dist"
   ],
   "scripts": {
-    "all": "run-s lint test distro",
+    "all": "run-s lint test distro test:types",
     "bundle": "rollup -c",
     "bundle:checksize": "bundlesize",
-    "copy": "copyfiles -V lib/*.d.ts dist",
+    "copy": "cpx 'lib/*.d.ts' dist",
     "distro": "run-s copy bundle test:integration test:bundle bundle:checksize",
     "dev": "npm test -- --watch",
     "lint": "eslint .",
     "prepublishOnly": "run-s distro",
     "test": "mocha -r source-map-support/register --full-trace test/*.spec.js",
     "test:bundle": "rollup -c test/bundling/rollup.config.js",
-    "test:integration": "mocha --full-trace test/integration/*.spec.{cjs,js}"
+    "test:integration": "mocha --full-trace test/integration/*.spec.{cjs,js}",
+    "test:types": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -41,9 +42,10 @@
   "homepage": "https://github.com/bpmn-io/min-dash",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^14.1.0",
+    "@types/mocha": "^10.0.1",
     "bundlesize": "^0.18.1",
     "chai": "^4.3.4",
-    "copyfiles": "^2.4.1",
+    "cpx": "^1.5.0",
     "eslint": "^8.28.0",
     "eslint-plugin-bpmn-io": "^0.16.0",
     "mocha": "^9.1.0",
@@ -52,7 +54,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0",
-    "source-map-support": "^0.5.19"
+    "source-map-support": "^0.5.19",
+    "typescript": "^5.0.3"
   },
   "bundlesize": [
     {

@@ -1,0 +1,13 @@
+{
+  "include": [
+    "test/*.js"
+  ],
+  "compilerOptions": {
+    "checkJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": [
+      "ES2019"
+    ]
+  }
+}
