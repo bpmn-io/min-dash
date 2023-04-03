@@ -460,6 +460,8 @@ describe('object', function() {
 
     it('should not allow array as key', function() {
       expect(function() {
+
+        // @ts-ignore: illegal call
         set({}, [ [ '__proto__' ], 'polluted' ], 'success');
       }).to.throw(/illegal key type/);
     });
@@ -467,6 +469,8 @@ describe('object', function() {
 
     it('should not allow object as key', function() {
       expect(function() {
+
+        // @ts-ignore: illegal call
         set({}, [ {}, 'polluted' ], 'success');
       }).to.throw(/illegal key type/);
     });

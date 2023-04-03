@@ -318,6 +318,8 @@ describe('collection', function() {
     it('should not work on Object', function() {
 
       expect(function() {
+
+        // @ts-ignore: error case
         without({}, 1);
       }).to.throw;
 
