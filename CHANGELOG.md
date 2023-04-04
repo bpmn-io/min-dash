@@ -8,7 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 4.1.0
 
-* `FIX`: various type definition fixes
+* `FIX`: various type definition fixes ([#25](https://github.com/bpmn-io/min-dash/pull/25))
 
 ## 4.0.0
 
