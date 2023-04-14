@@ -13,7 +13,7 @@
     "all": "run-s lint test distro test:types",
     "bundle": "rollup -c",
     "bundle:checksize": "bundlesize",
-    "copy": "cpx 'lib/*.d.ts' dist",
+    "copy": "cpx \"lib/*.d.ts\" dist",
     "distro": "run-s copy bundle test:integration test:bundle bundle:checksize",
     "dev": "npm test -- --watch",
     "lint": "eslint .",
