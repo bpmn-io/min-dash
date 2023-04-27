@@ -1,3 +1,5 @@
+type PropertyName = string | number | symbol;
+
 /**
  * Copy the values of all of the enumerable own properties from one or more source objects to a
  * target object. Returns the target object.
@@ -59,7 +61,7 @@ export function get(target: any, path: (string|number)[], defaultValue?: any): a
  *
  * @return the element
  */
-export function set<T>(target: T, path: (string|number)[], value: any): T;
+export function set<T>(target: T, path: PropertyName[], value: any): T;
 
 /**
  * Pick properties from the given target.
@@ -69,7 +71,17 @@ export function set<T>(target: T, path: (string|number)[], value: any): T;
  *
  * @return
  */
-export function pick<T, V extends any[]>(target: T, properties: V): Pick<T, V>;
+export function pick<T, V extends keyof T>(target: T, properties: Array<V>): Pick<T, V>;
+
+/**
+ * Pick properties from the given target.
+ *
+ * @param target
+ * @param properties
+ *
+ * @return
+ */
+export function pick<T, V extends PropertyName[]>(target: T, properties: V): Partial<T>;
 
 /**
  * Pick all target properties, excluding the given ones.
@@ -79,7 +91,17 @@ export function pick<T, V extends any[]>(target: T, properties: V): Pick<T, V>;
  *
  * @return target
  */
-export function omit<T, V extends any[]>(target: T, properties: V): Omit<T, V>;
+export function omit<T, V extends keyof T>(target: T, properties: V): Omit<T, V>;
+
+/**
+ * Pick all target properties, excluding the given ones.
+ *
+ * @param target
+ * @param properties
+ *
+ * @return target
+ */
+export function omit<T, V extends PropertyName[]>(target: T, properties: V): Pick<T, Exclude<keyof T, V[number]>>;
 
 /**
  * Copy the values of all of the enumerable own properties from one or more source objects to a
