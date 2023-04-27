@@ -36,6 +36,11 @@ describe('object', function() {
         e: undefined
       });
 
+      // and when
+      let otherPicked = pick(obj, [ 'a', 'b' ]);
+
+      // then
+      expect(otherPicked.a).to.eql(1);
     });
 
 
