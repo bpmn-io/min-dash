@@ -12,7 +12,7 @@
   "scripts": {
     "all": "run-s lint test distro test:types",
     "bundle": "rollup -c",
-    "bundle:checksize": "bundlesize",
+    "bundle:checksize": "BUNDLEMON_REMOTE=false bundlemon",
     "copy": "cpx 'lib/*.d.ts' dist",
     "distro": "run-s copy bundle test:integration test:bundle bundle:checksize",
     "dev": "npm test -- --watch",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^14.1.0",
     "@types/mocha": "^10.0.1",
-    "bundlesize": "^0.18.1",
+    "bundlemon": "^2.0.2",
     "chai": "^4.3.4",
     "cpx": "^1.5.0",
     "eslint": "^8.28.0",
@@ -57,14 +57,16 @@
     "source-map-support": "^0.5.19",
     "typescript": "^5.0.3"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/min-dash.min.js",
-      "maxSize": "2 kB"
-    },
-    {
-      "path": "./test/bundling/bundled.js",
-      "maxSize": "300 B"
-    }
-  ]
+  "bundlemon": {
+    "files": [
+      {
+        "path": "./dist/min-dash.min.js",
+        "maxSize": "2 kB"
+      },
+      {
+        "path": "./test/bundling/bundled.js",
+        "maxSize": "300 B"
+      }
+    ]
+  }
 }
