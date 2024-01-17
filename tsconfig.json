@@ -8,7 +8,6 @@
     "checkJs": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "lib": [
       "ES2019"
     ]
