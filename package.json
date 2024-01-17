@@ -20,7 +20,9 @@
     "test": "mocha -r source-map-support/register --full-trace test/*.spec.js",
     "test:bundle": "rollup -c test/bundling/rollup.config.js",
     "test:integration": "mocha --full-trace test/integration/*.spec.{cjs,js}",
-    "test:types": "tsc --noEmit"
+    "test:types": "run-s test:types:*",
+    "test:types:cjs": "tsc --noEmit",
+    "test:types:esm": "tsc --noEmit --module node16"
   },
   "repository": {
     "type": "git",
