@@ -4,8 +4,8 @@ import {
 
 export function isUndefined(obj: any): obj is null | undefined;
 export function isDefined(obj: any): obj is Exclude<any, null | undefined>;
-export function isNil(obj: any): obj is object;
-export function isArray(obj: any): obj is Array<any>;
+export function isNil(obj: any): value is null | undefined;
+export function isArray(obj: any): obj is Array;
 export function isObject(obj: any): obj is object;
 export function isNumber(obj: any): obj is number;
 export function isFunction(obj: any): obj is Function;

@@ -11,7 +11,7 @@ export type ArrayCollection<T> = Array<T>;
 export type StringKeyValueCollection<T> = { [key: string]: T };
 export type NumberKeyValueCollection<T> = { [key: number]: T };
 export type KeyValueCollection<T> = StringKeyValueCollection<T> | NumberKeyValueCollection<T>;
-export type Collection<T> = KeyValueCollection<T> | ArrayCollection<T>;
+export type Collection<T> = KeyValueCollection<T> | ArrayCollection<T> | null | undefined;
 
 /**
  * Find element in collection.

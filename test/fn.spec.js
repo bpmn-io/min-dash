@@ -23,6 +23,8 @@ describe('fn', function() {
 
       // given
       let fn = function() {
+
+        // @ts-ignore-error "this"
         return this.foo;
       };
 
@@ -110,6 +112,8 @@ describe('fn', function() {
       let self = {};
 
       let callback = sinon.spy(function() {
+
+        // @ts-ignore-error "this"
         expect(this).to.equal(self);
       });
 

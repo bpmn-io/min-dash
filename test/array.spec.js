@@ -9,6 +9,16 @@ describe('array', function() {
 
   describe('flatten', function() {
 
+    it('should handle null values', function() {
+
+      // then
+      expect(flatten(null)).to.eql([]);
+
+      // @ts-ignore-error "missing arg"
+      expect(flatten()).to.eql([]);
+    });
+
+
     it('should flatten, one level deep', function() {
 
       // given
