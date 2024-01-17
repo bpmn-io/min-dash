@@ -59,6 +59,7 @@ describe('lang', function() {
 
       expect(isDefined(null)).to.be.true;
 
+      // @ts-ignore-error "missing arg"
       expect(isDefined()).to.be.false;
       expect(isDefined(undefined)).to.be.false;
       expect(isDefined(void 0)).to.be.false;
@@ -79,6 +80,7 @@ describe('lang', function() {
 
       expect(isUndefined(null)).to.be.false;
 
+      // @ts-ignore-error "missing arg"
       expect(isUndefined()).to.be.true;
       expect(isUndefined(undefined)).to.be.true;
       expect(isUndefined(void 0)).to.be.true;
@@ -98,6 +100,8 @@ describe('lang', function() {
       expect(isNil({})).to.be.false;
 
       expect(isNil(null)).to.be.true;
+
+      // @ts-ignore-error "missing arg"
       expect(isNil()).to.be.true;
       expect(isNil(undefined)).to.be.true;
       expect(isNil(void 0)).to.be.true;

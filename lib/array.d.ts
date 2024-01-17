@@ -5,4 +5,4 @@
  *
  * @return
  */
-export function flatten<T extends any[]>(arr: T[]): T;
+export function flatten<T extends any>(arr: T[] | null): T[];
