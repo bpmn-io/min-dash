@@ -1,6 +1,7 @@
 {
   "include": [
-    "test/*.js"
+    "test/*.js",
+    "test/*.ts"
   ],
   "compilerOptions": {
     "strict": true,
