@@ -6,6 +6,11 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.2.0
+
+* `FIX`: correct various type definitions ([#33](https://github.com/bpmn-io/min-dash/pull/33))
+* `FIX`: allow type definitions to be consumed in ESM setups ([#31](https://github.com/bpmn-io/min-dash/pull/31))
+
 ## 4.1.1
 
 * `FIX`: correct `pick` and `omit` type definitions ([#26](https://github.com/bpmn-io/min-dash/issues/26))
