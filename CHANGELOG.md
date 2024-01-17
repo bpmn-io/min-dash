@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.2.1
+
+* `FIX`: correct `isNil` and `isArray` type definitions ([#35](https://github.com/bpmn-io/min-dash/pull/35))
+
 ## 4.2.0
 
 * `FEAT`: add `ESM` package exports ([#29](https://github.com/bpmn-io/min-dash/pull/29))
