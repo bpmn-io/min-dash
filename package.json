@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "all": "run-s lint test distro test:types",
-    "bundle": "rollup -c",
+    "bundle": "rollup -c --bundleConfigAsCjs",
     "copy": "cpx 'lib/*.d.ts' dist",
     "distro": "run-s copy bundle test:integration test:bundle",
     "dev": "npm test -- --watch",
@@ -42,7 +42,8 @@
   "sideEffects": false,
   "homepage": "https://github.com/bpmn-io/min-dash",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^14.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/mocha": "^10.0.6",
     "@types/sinon": "^17.0.3",
     "@types/sinon-chai": "^3.2.12",
@@ -52,8 +53,7 @@
     "eslint-plugin-bpmn-io": "^1.0.0",
     "mocha": "^10.2.0",
     "npm-run-all": "^4.1.1",
-    "rollup": "^2.56.3",
-    "rollup-plugin-terser": "^7.0.2",
+    "rollup": "^4.9.5",
     "sinon": "^17.0.1",
     "sinon-chai": "^3.7.0",
     "source-map-support": "^0.5.19",
