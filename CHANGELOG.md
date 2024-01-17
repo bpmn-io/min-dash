@@ -8,6 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 4.2.0
 
+* `FEAT`: add `ESM` package exports ([#29](https://github.com/bpmn-io/min-dash/pull/29))
 * `FIX`: correct various type definitions ([#33](https://github.com/bpmn-io/min-dash/pull/33))
 * `FIX`: allow type definitions to be consumed in ESM setups ([#31](https://github.com/bpmn-io/min-dash/pull/31))
 
