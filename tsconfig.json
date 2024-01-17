@@ -3,7 +3,9 @@
     "test/*.js"
   ],
   "compilerOptions": {
+    "strict": true,
     "checkJs": true,
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": [
