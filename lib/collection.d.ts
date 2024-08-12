@@ -31,7 +31,7 @@ export function find<T>(collection: Collection<T>, matcher: Matcher<T>): T | und
  *
  * @return
  */
-export function findIndex<T>(collection: Collection<T>, matcher: Matcher<T>): number | undefined;
+export function findIndex<T>(collection: Collection<T>, matcher: Matcher<T>): number | string | undefined;
 
 /**
  * Find element in collection.
