@@ -6,6 +6,11 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.2.2
+
+* `FIX`: gracefully handle `undefined` target in `has`
+* `FIX`: correct `findIndex` type definitions ([#36](https://github.com/bpmn-io/min-dash/issues/36))
+
 ## 4.2.1
 
 * `FIX`: correct `isNil` and `isArray` type definitions ([#35](https://github.com/bpmn-io/min-dash/pull/35))
