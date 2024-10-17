@@ -44,6 +44,18 @@ describe('lang', function() {
       expect(has(arr, '5')).to.be.false;
     });
 
+
+    it('should handle invalid input', function() {
+
+      expect(has(null, '1')).to.be.false;
+
+      expect(has(undefined, '1')).to.be.false;
+
+      expect(has(0, '1')).to.be.false;
+
+      expect(has('', 'length')).to.be.true;
+    });
+
   });
 
 
