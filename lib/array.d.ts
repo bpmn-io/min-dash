@@ -1,3 +1,7 @@
+import { ArrayCollection } from './collection.js';
+
+type Flatten<Type> = Type extends Array<infer Item> ? Item : Type;
+
 /**
  * Flatten array, one level deep.
  *
@@ -5,4 +9,4 @@
  *
  * @return
  */
-export function flatten<T extends any>(arr: T[] | null): T[];
+export function flatten<T>(arr: ArrayCollection<T> | null | undefined): Flatten<T>[];
