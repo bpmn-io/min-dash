@@ -1,12 +1,12 @@
 import {
-  default as chai,
+  use as chaiUse,
   expect
 } from 'chai';
 
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
-chai.use(sinonChai);
+chaiUse(sinonChai);
 
 import {
   bind,
