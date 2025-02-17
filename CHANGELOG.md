@@ -6,6 +6,10 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.2.3
+
+* `FIX`: correct `flatten` type definitions ([#38](https://github.com/bpmn-io/min-dash/pull/38))
+
 ## 4.2.2
 
 * `FIX`: gracefully handle `undefined` target in `has`
