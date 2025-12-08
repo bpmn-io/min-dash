@@ -6,7 +6,7 @@ describe('integration', function() {
   describe('bundle', function() {
 
     // when
-    const md = require('../..');
+    const md = require('min-dash');
 
     it('should expose array utils', function() {
 

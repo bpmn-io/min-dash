@@ -8,7 +8,7 @@ import {
   bind,
   isArray,
   pick
-} from '../../dist/index.esm.js';
+} from 'min-dash';
 
 
 describe('integration', function() {
