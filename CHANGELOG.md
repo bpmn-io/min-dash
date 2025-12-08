@@ -6,6 +6,12 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: make library ESM only
+
+### Breaking Changes
+
+* `Node>=20.12` is required to consume library from CommonJS
+
 ## 4.2.3
 
 * `FIX`: correct `flatten` type definitions ([#38](https://github.com/bpmn-io/min-dash/pull/38))
