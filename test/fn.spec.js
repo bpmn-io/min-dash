@@ -1,3 +1,5 @@
+/* global global */
+
 import {
   use as chaiUse,
   expect
