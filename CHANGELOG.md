@@ -6,6 +6,8 @@ All notable changes to [min-dash](https://github.com/bpmn-io/min-dash) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 5.0.0
+
 * `FEAT`: make library ESM only
 
 ### Breaking Changes
