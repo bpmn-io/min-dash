@@ -8,7 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 5.0.0
 
-* `FEAT`: make library ESM only
+* `FEAT`: make library ESM only ([#40](https://github.com/bpmn-io/min-dash/pull/40))
 
 ### Breaking Changes
 
