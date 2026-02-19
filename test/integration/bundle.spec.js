@@ -13,7 +13,7 @@ import {
 
 describe('integration', function() {
 
-  describe('bundle', function() {
+  describe('usage from ES module', function() {
 
     it('should expose array utils', function() {
 

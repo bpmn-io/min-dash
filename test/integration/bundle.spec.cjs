@@ -3,7 +3,7 @@ var expect = require('chai').expect;
 
 describe('integration', function() {
 
-  describe('bundle', function() {
+  describe('usage from CommonJS', function() {
 
     // when
     const md = require('min-dash');
