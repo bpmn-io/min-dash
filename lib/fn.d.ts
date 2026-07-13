@@ -1,5 +1,9 @@
-export type DebouncedFunction = {
-  (...args: any[]): any;
+type AnyFunction = (...args: any[]) => any;
+
+type WrappedFunction<T extends AnyFunction> = (...args: Parameters<T>) => void;
+
+export type DebouncedFunction<T extends AnyFunction> = {
+  (...args: Parameters<T>): void;
   flush: () => void;
   cancel: () => void;
 };
@@ -13,7 +17,7 @@ export type DebouncedFunction = {
  *
  * @return debounced function
  */
-export function debounce(fn: Function, timeout: number): DebouncedFunction;
+export function debounce<T extends AnyFunction>(fn: T, timeout: number): DebouncedFunction<T>;
 
 /**
  * Throttle fn, calling at most once
@@ -24,7 +28,7 @@ export function debounce(fn: Function, timeout: number): DebouncedFunction;
  *
  * @return throttled function
  */
-export function throttle(fn: Function, interval: number): (...args: any[]) => void;
+export function throttle<T extends AnyFunction>(fn: T, interval: number): WrappedFunction<T>;
 
 /**
  * Bind function against target <this>.

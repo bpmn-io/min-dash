@@ -3,8 +3,10 @@ import { expectType } from 'ts-expect';
 import { expect } from 'chai';
 
 import {
-  flatten
-} from '../lib/index.js';
+  debounce,
+  flatten,
+  throttle
+} from 'min-dash';
 
 
 describe('min-dash', function() {
@@ -30,6 +32,29 @@ describe('min-dash', function() {
 
       // when
       expect(flatten([ [ 'A', 'B', 'C' ], 'B' ])).to.eql([ 'A', 'B', 'C' ]);
+    });
+
+    it('debounce + throttle', function() {
+
+      const debounced = debounce((prefix: string, count: number) => {
+        return `${prefix}:${count}`;
+      }, 100);
+
+      expectType<void>(debounced('A', 1));
+      expectType<() => void>(debounced.flush);
+      expectType<() => void>(debounced.cancel);
+
+      // @ts-expect-error debounce should preserve wrapped argument types
+      debounced(1, 'A');
+
+      const throttled = throttle((prefix: string, count: number) => {
+        return `${prefix}:${count}`;
+      }, 100);
+
+      expectType<void>(throttled('A', 1));
+
+      // @ts-expect-error throttle should preserve wrapped argument types
+      throttled(1, 'A');
     });
 
   });
