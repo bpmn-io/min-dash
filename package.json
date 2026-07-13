@@ -63,5 +63,8 @@
     "source-map-support": "^0.5.19",
     "ts-expect": "^1.3.0",
     "typescript": "^5.9.3"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
   }
 }
