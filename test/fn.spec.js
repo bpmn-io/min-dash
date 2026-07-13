@@ -94,10 +94,11 @@ describe('fn', function() {
 
     it('should pass last args', function() {
 
-      let callback = sinon.spy();
+      let callback = sinon.spy(function(str, num) {});
       let debounced = debounce(callback, 100);
 
       // when
+      // @ts-ignore-error "wrong arguments"
       debounced(1);
       debounced('BAR', 3);
 
@@ -123,7 +124,7 @@ describe('fn', function() {
 
       // when
       debounced.apply({});
-      debounced.apply(self, [ 'BAR', 3 ]);
+      debounced.apply(self);
 
       // ticked...
       clock.tick(101);

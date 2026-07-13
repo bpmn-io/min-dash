@@ -8,6 +8,7 @@
     "checkJs": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
+    "module": "nodenext",
     "lib": [
       "ES2019"
     ]
