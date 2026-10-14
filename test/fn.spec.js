@@ -196,6 +196,52 @@ describe('fn', function() {
       expect(callback).to.have.been.calledOnce;
     });
 
+
+    [ false, true ].forEach(function(flush) {
+
+      it('should keep calls scheduled from inside fn' + (flush ? ' on #flush' : ''), function() {
+
+        let callback = sinon.spy(function(value) {
+          if (value === 'first') {
+            debounced('second');
+          }
+        });
+        let debounced = debounce(callback, 100);
+
+        debounced('first');
+
+        if (flush) {
+          debounced.flush();
+        } else {
+          clock.tick(100);
+        }
+
+        expect(callback).to.have.been.calledOnceWith('first');
+
+        clock.tick(100);
+
+        expect(callback).to.have.been.calledTwice;
+        expect(callback.secondCall).to.have.been.calledWith('second');
+      });
+    });
+
+
+    it('should allow another call after fn throws', function() {
+
+      let error = new Error('callback failed');
+      let callback = sinon.stub().onFirstCall().throws(error);
+      let debounced = debounce(callback, 100);
+
+      debounced();
+
+      expect(function() { clock.tick(100); }).to.throw(error);
+
+      debounced();
+      clock.tick(100);
+
+      expect(callback).to.have.been.calledTwice;
+    });
+
   });
 
 
